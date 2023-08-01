@@ -1,0 +1,30 @@
+/* 首页CSS样式 */
+/* 版心 */
+.wrapper {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+/* 头部区域 */
+.header {
+    height: 100px;
+    background-color: #fff;
+}
+
+.header .wrapper {
+    padding-top: 29px;
+    display: flex;
+}
+
+/* logo */
+.logo a {
+    display: block;
+    width: 195px;
+    height: 41px;
+    background-image: url(../images/logo.png);
+    font-size: 0;
+}
