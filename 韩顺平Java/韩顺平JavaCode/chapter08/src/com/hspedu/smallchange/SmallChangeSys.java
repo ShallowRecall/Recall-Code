@@ -13,6 +13,7 @@ public class SmallChangeSys {
     //4. 消费
     //5. 退出
     //6. 用户输入4退出时，给出提示”你确定要退出吗？y/n“，必须输入正确的y/n，否则循环输入指令，直到输入y或者n。
+    //7. 在收益入账和消费时，判断金额是否合理，并给出相应的提示
     public static void main(String[] args) {
 
         //定义相关的变量
@@ -54,7 +55,23 @@ public class SmallChangeSys {
                     System.out.print("收益入账金额：");
                     money = scanner.nextDouble();
                     //money 的值范围应该校验
+                    //思路：编程思想
+                    //找出不正确的金额条件，然后给出提示，就直接break
+                    if (money <= 0) {
+                        System.out.println("收益入账金额 需要 大于 0");
+                        break;
+                    }
 
+//                    //找出正确金额的条件
+//                    if (money > 0){
+//                        balance += money;
+//                        //拼接收益入账信息到 details
+//                        date = new Date();//获取当前日期
+//                        details += "\n收益入账\t+" + money + "\t " + sdf.format(date) + "\t" + balance;
+//                    }
+//                    else {
+//                        System.out.println("收益入账金额 需要 大于 0");
+//                    }
                     balance += money;
                     //拼接收益入账信息到 details
                     date = new Date();//获取当前日期
@@ -64,6 +81,12 @@ public class SmallChangeSys {
                     System.out.println("消费金额:");
                     money = scanner.nextDouble();
                     //money 的值范围应该校验
+                    //找出金额不正确的情况
+                    //过关斩将 校验方式.
+                    if (money <= 0 || money > balance) {
+                        System.out.println("你的消费金额 应该在 0-" + balance);
+                        break;
+                    }
                     System.out.println("消费说明:");
                     note = scanner.next();
                     balance -= money;
@@ -80,28 +103,24 @@ public class SmallChangeSys {
                     // (3) 退出while后，再判断choice是y还是n，就可以决定是否退出
                     // (4) 建议一段代码，完成一个小功能，尽量不要混在一起
                     String choice = "";
-                    while(true){//要求用户必须输入y/n，否则就一直循环
+                    while (true) {//要求用户必须输入y/n，否则就一直循环
                         System.out.println("你确定要退出吗？y/n");
                         choice = scanner.next();
-//                        if ("y".equals(choice) || "n".equals(choice)){
-//                            break;
-//                        }
-                        if ("y".equals(choice)){
-                            loop = false;
-                            break;
-                        }else if ("n".equals(choice)){
+                        if ("y".equals(choice) || "n".equals(choice)) {
                             break;
                         }
+                        //第二个方案
+//                        if ("y".equals(choice)){
+//                            loop = false;
+//                            break;
+//                        }else if ("n".equals(choice)){
+//                            break;
+//                        }
                     }
-
-//                    //当用户退出while 后
-//                    if (choice.equals("y")){
-//                        loop = false;
-//                    }else {
-//                        loop = true;
-//                    }
-
-                    loop = false;
+                    //当用户退出while 后
+                    if (choice.equals("y")) {
+                        loop = false;
+                    }
                     break;
                 default:
                     System.out.println("选择有误,请重新选择");
