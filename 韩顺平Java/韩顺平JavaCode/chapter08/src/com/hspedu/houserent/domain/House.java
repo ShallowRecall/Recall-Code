@@ -70,13 +70,13 @@ public class House {
         this.state = state;
     }
     //为了方便地输出对象信息，我们实现toString
-
+    //编号	房主	电话	地址	月租	状态(未出租/已出租)
     @Override
     public String toString() {
         return  id +
-                "\t" + name +
+                "\t\t" + name +
                 "\t" + phone +
-                "\t" + address +
+                "\t\t" + address +
                 "\t" + rent +
                 "\t" + state ;
     }
