@@ -121,6 +121,17 @@ public class SmallChangeSys {
                     if (choice.equals("y")) {
                         loop = false;
                     }
+<<<<<<< Updated upstream
+=======
+
+//                    //当用户退出while 后
+//                    if (choice.equals("y")){
+//                        loop = false;
+//                    }else {
+//                        loop = true;
+//                    }
+                    loop = false;
+>>>>>>> Stashed changes
                     break;
                 default:
                     System.out.println("选择有误,请重新选择");
