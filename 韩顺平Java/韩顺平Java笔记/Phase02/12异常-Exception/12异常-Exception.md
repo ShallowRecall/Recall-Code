@@ -239,3 +239,41 @@ finally{//总是执行
 3）子类重写父类的方法时，对抛出异常的规定：子类重写的方法，所抛出的异常类型要么和父类抛出的异常一致，要么为父类抛出的异常的类型的子类型
 
 4）在throws 过程，如果有方法try-catch，就相当于处理异常，就可以不必throws
+
+### 12.11 自定义异常
+
+#### 12.11.1 基本概念
+
+当程序中出现了某些 “错误”，但该错误信息并没有在Throwable子类中描述处理，这个时候可以自己设计异常类，用于描述该错误信息。
+
+#### 12.11.2 自定义异常的步骤
+
+1）定义类：自定义异常类名(程序员自己写)继承Exception或RuntimeException
+
+2）如果继承Exception，属于编译异常
+
+3）如果继承RuntimeException，属于运行异常（一般来说，继承RuntimeException）
+
+#### 12.11.3 自定义异常的应用实例
+
+【CustomException.java】
+
+当我们接收Person对象年龄时，要求范围在 18-120 之间，否则抛出自定义异常(要求 继承RuntimeException)，并给出提示信息。
+
+### 12.12 throw 和 throws 的区别
+
+#### 12.12.1 一览表
+
+![image-20231006164840192](12异常-Exception.assets/image-20231006164840192.png)
+
+#### 12.12.2 测试题-下面的测试输出什么
+
+【ThrowException.java】
+
+![image-20231006164936558](12异常-Exception.assets/image-20231006164936558.png)
+
+### 12.13 本章作业
+
+![image-20231006180434606](12异常-Exception.assets/image-20231006180434606.png)
+
+![image-20231006180548149](12异常-Exception.assets/image-20231006180548149.png)
