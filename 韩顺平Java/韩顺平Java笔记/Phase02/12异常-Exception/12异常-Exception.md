@@ -124,3 +124,118 @@
 ![image-20231004195401430](12异常-Exception.assets/image-20231004195401430.png)
 
 ![image-20231004195427228](12异常-Exception.assets/image-20231004195427228.png)
+
+### 12.9 try-catch 异常处理
+
+#### 12.9.1 try-catch 方式处理异常说明
+
+【TryCatch01.java】
+
+1）Java提供try和catch块来处理异常。try块用于包含可能出错的代码。catch块用于处理try块中发生的异常。可以根据需要在程序中有多个try...catch块。
+
+2）基本语法
+
+try{
+
+​	//可疑代码
+
+​	//将异常生成对应的异常对象，传递给catch块
+
+}catch(异常){
+
+​	//对异常的处理
+
+}
+
+//如果没有finally，语法是可以通过
+
+#### 12.9.2 try-catch 方式处理异常-快速入门
+
+```java
+public static void main(String[] args){
+  int num1 = 10;
+  int num2 = 0;
+  try{
+    int res = num1/num2;
+  }catch(Exception e){
+    System.out.println(e.getMessage());
+  }
+}
+```
+
+#### 12.9.3 try-catch 方式处理异常-注意事项 
+
+【TryCatchDetail.java】
+
+1）如果异常发生了，则异常发生后面的代码不会执行，直接进入到catch块。
+
+2）如果异常没有发生，则顺序执行try的代码块，不会进入到catch。
+
+3）如果希望不管是否发生异常，都执行某段代码块(比如关闭连接，释放资源等)则使用如下代码- finally{ }
+
+![image-20231005164610814](12异常-Exception.assets/image-20231005164610814.png)
+
+4）可以有多个catch语句，捕获不同的异常(进行不同的业务处理)，要求父类异常在后，子类异常在前，比如(Exception在后，NullPointerException 在前)，如果发生异常，只会匹配一个catch。
+
+【TryCatchDetail02.java】
+
+5）可以进行 try-finally 配合使用，这种用法相当于没有捕获异常，因此程序会直接崩掉/退出。应用场景，就是执行一段代码，不管是否发生异常，都必须执行某个业务逻辑
+
+```java
+try{
+  //代码...
+}
+finally{//总是执行
+  
+}
+```
+
+#### 12.9.4 异常处理课堂练习
+
+1）题1 TryCatchExercise01.java
+
+<img src="12异常-Exception.assets/image-20231005174523828.png" alt="image-20231005174523828" style="zoom:50%;" />
+
+2）题2 TryCatchExercise02.java
+
+<img src="12异常-Exception.assets/image-20231005174615413.png" alt="image-20231005174615413" style="zoom: 50%;" />
+
+3）题3 TryCatchExercise03.java
+
+<img src="12异常-Exception.assets/image-20231005174713729.png" alt="image-20231005174713729" style="zoom:50%;" />
+
+#### 12.9.5 try-catch-finally 执行顺序小结
+
+1）如果没有出现异常，则执行try块中所有语句，不执行catch块中语句，如果有finally，最后还需要执行finally里面的语句
+
+2）如果出现异常，则try块中异常发生后，try块剩下的语句不再执行。将执行catch块中的语句，如果有finally，最后还需要执行finally里面的语句！
+
+#### 12.9.6 课后练习题：
+
+【TryCatchExercise04.java】
+
+如果用户输入的不是一个整数，就提示他反复输入，直到输入一个整数为止
+
+### 12.10 throws异常处理
+
+#### 12.10.1 基本介绍
+
+1）如果一个地方(中的语句执行时)可能生成某种异常，但是并不能确定如何处理这种异常，则此方法应显示地声明抛出异常，表明该方法将不对这些异常进行处理，而由此方法的调用者负责处理。
+
+2）在方法声明中用throws语句可以声明抛出异常的列表，throws后面的异常类型可以是方法中产生的异常类型，也可以是它的父类。
+
+#### 12.10.2 快速入门案例
+
+【Throws01.java】
+
+#### 12.10.3 注意事项和使用细节 
+
+【ThrowsDetail.java】
+
+1）对于编译异常，程序中必须处理，比如try-catch 或者 throws
+
+2）对于运行时异常，程序中如果没有处理，默认就是throws的方式处理
+
+3）子类重写父类的方法时，对抛出异常的规定：子类重写的方法，所抛出的异常类型要么和父类抛出的异常一致，要么为父类抛出的异常的类型的子类型
+
+4）在throws 过程，如果有方法try-catch，就相当于处理异常，就可以不必throws
