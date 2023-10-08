@@ -14,7 +14,7 @@ public class StringExercise10 {
     public static void main(String[] args) {
         StringExercise10 ex = new StringExercise10();
         ex.change(ex.str, ex.ch);
-        System.out.println(ex.str + "and");
+        System.out.print(ex.str + " and ");
         System.out.println(ex.ch);
     }
 }
