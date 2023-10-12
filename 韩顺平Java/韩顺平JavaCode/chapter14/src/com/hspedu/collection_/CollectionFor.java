@@ -17,10 +17,16 @@ public class CollectionFor {
         //解读
         //1. 使用增强for，在Collection集合
         //2. 增强for，底层仍然是迭代器
+        //3. 增强for可以理解成就是简化版本 迭代器遍历
+        //4. 快捷方式 I
         //使用增强for
-        for (Object book : col) {
-            System.out.println("book=" + book);
+//        for (Object book : col) {
+//            System.out.println("book=" + book);
+//        }
+        for (Object o : col) {
+            System.out.println("book=" + o);
         }
+
         //增强for，也可以直接在数组使用
 //        int[] nums = {1, 8, 10, 90};
 //        for (int i : nums) {
