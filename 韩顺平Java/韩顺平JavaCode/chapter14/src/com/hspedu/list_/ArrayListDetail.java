@@ -22,6 +22,7 @@ public class ArrayListDetail {
         arrayList.add(null);
         arrayList.add("jack");
         arrayList.add(null);
+        arrayList.add("hsp");
         System.out.println(arrayList);
     }
 }
