@@ -20,10 +20,25 @@ public class MapMethod {
         map.put("刘令博", null);//ok
         map.put(null, "刘亦菲");//ok
         map.put("鹿晗", "关晓彤");//ok
+        map.put("hsp", "hsp的老婆");
 
         System.out.println("map=" + map);
 
-        //
+        //remove:根据键删除映射关系
+        map.remove(null);
+        System.out.println("map=" + map);
+        //get:根据键获取值
+        Object val = map.get("鹿晗");
+        System.out.println("val=" + val);
+        //size:获取
+        System.out.println("k-v=" + map.size());
+        //isEmpty:判断个数是否为0
+        System.out.println(map.isEmpty());//false
+        //clear:清除k-v
+        //map.clear();
+        System.out.println("map=" + map);
+        //containsKey:查找键是否存在
+        System.out.println(map.containsKey("hsp"));//F
     }
 }
 
