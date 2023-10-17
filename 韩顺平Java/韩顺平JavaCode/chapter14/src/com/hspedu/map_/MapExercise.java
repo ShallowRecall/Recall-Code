@@ -34,7 +34,7 @@ public class MapExercise {
 
         //2. 使用EntrySet -> 迭代器
         //   体现比较难的知识点
-        //   
+        //
         Set entrySet = hashMap.entrySet();
         System.out.println("====迭代器====");
         Iterator iterator = entrySet.iterator();
