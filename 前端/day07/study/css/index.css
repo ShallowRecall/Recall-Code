@@ -28,3 +28,116 @@ body {
     background-image: url(../images/logo.png);
     font-size: 0;
 }
+
+/* 导航 */
+.nav {
+    margin-left: 102px;
+}
+
+.nav ul {
+    display: flex;
+}
+
+.nav li {
+    margin-right: 24px;
+}
+
+.nav li a {
+    display: block;
+    padding: 6px 8px;
+    line-height: 27px;
+    font-size: 19px;
+}
+
+/* active 类选择器，表示默认选中的a */
+.nav li .active,
+.nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+/* 搜索 */
+.search {
+    display: flex;
+    margin-left: 64px;
+    padding-left: 19px;
+    padding-right: 12px;
+    width: 412px;
+    height: 40px;
+    background-color: #f3f5f7;
+    border-radius: 20px;
+}
+
+.search input {
+    flex: 1;
+    border: 0;
+    background-color: transparent;
+    /* 去掉表单控件的焦点框 */
+    outline: none;
+}
+
+/* ::placeholder 选中就是 placeholder 属性文字样式 */
+.search input::placeholder{
+    font-size: 14px;
+    color: #999;
+}
+
+/* 父级是flex布局，子级变弹性盒子：加宽高生效 */
+.search a {
+    align-self: center;
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/search.png);
+}
+
+/* 用户 */
+.user {
+    margin-left: 32px;
+    margin-top: 4px;
+}
+
+.user img {
+    margin-right: 7px;
+    /* vertical-align 行内块和行内垂直方向对齐方式 */
+    vertical-align: middle;
+}
+
+.user span {
+    font-size: 16px;
+    color: #666;
+}
+
+/* banner 区域 */
+.banner {
+    height: 420px;
+    background-color: #0092cb;
+}
+
+.banner .wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 420px;
+    background-image: url(../uploads/banner.png);
+}
+
+/* 侧导航 */
+.banner .left {
+    padding: 3px 20px;
+    width: 191px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.banner .left a{
+    /* 块级：宽度是父级的100% */
+    display: block;
+    height: 46px;
+    background: url(../images/right.png) no-repeat right center;
+    line-height: 46px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.banner .left a:hover {
+    background-image: url(../images/right-hover.png);
+    color: #00a4ff;
+}
