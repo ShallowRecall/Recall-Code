@@ -232,3 +232,76 @@ String sql = "select count(*) from admin where username = ? and password = ?";
 
 #### 25.8.1 说明
 
+在jdbc操作中，获取连接 和 释放资源 是经常使用到，可以将其封装JDBC连接的工具类JDBCUtils
+
+#### 25.8.2 代码实现
+
+【com.hspedu.jdbc.utils JDBCUtils.java】
+
+#### 25.8.3 实际使用工具类 JDBCUtils
+
+【JDBCUtils_Use.java】
+
+### 25.9 事务
+
+#### 25.9.1 基本介绍
+
+1. JDBC程序中当一个Connection对象创建时，默认情况下是自动提交事务：每次执行一个 SQL 语句时，如果执行成功，会向数据库自动提交，而不能回滚。
+2. JDBC程序中为了让多个 SQL 语句作为一个整体执行，需要使用事务
+3. 调用Connection 的 setAutoCommit(false) 可以取消自动提交事务
+4. 在所有的SQL 语句都成功执行后，调用 Connection 的 commit();方法提交事务
+5. 在其中某个操作失败或出现异常时，调用 Connection 的 rollback();方法回滚事务
+
+#### 25.9.2 应用实例
+
+模拟经典的转账业务
+
+![image-20231022172201658](第 25 章 JDBC和数据库连接池.assets/image-20231022172201658.png)
+
+#### 25.9.3 不使用事务可能出现的问题模拟-模拟经典的转账业务
+
+【com.hspedu.jdbc.transaction_  Transaction_.java】
+
+#### 25.9.4 使用事务解决上述问题-模拟经典的转账业务
+
+#### 25.9.5 课后练习
+
+1. 创建 account 表
+2. 在表中先 添加 两条记录 tom 余额100，king余额200
+3. 使用事务完成，tom 给 king 转 10 元钱。
+
+### 25.10 批处理
+
+#### 25.10.1 基本介绍
+
+1. 当需要成批插入或者更新记录时。可以采用Java的批量更新机制，这一机制允许多条语句一次性提交给数据库批量处理。通常情况喜爱比单独提交处理更有效率。
+
+2. JDBC的批量处理语句包括下面方法：
+
+   addBatch()：添加需要批量处理的SQL语句或参数
+
+   executeBatch()：执行批量处理语句;
+
+   clearBatch()：清空批处理包的语句
+
+3. JDBC连接MySQL时，如果要使用批处理功能，请在url中加参数？rewriteBatchedStatements=true
+
+4. 批处理往往和PreparedStatements一起搭配使用，可以既减少编译次数，又减少运行次数，效率大大提高
+
+#### 25.10.2 应用实例
+
+【Batch_.java】
+
+1. 向admin2表中添加5000条数据，看看使用批处理耗时多久
+2. 注意：需要修改 配置文件 jdbc.properties url=jdbc:mysql://localhost:3306/数据库?rewriteBatchedStatements=true
+
+### 25.11 数据库连接池
+
+#### 25.11.1 5k 次连接数据库问题
+
+[com.hspedu.jdbc.datasource COnQuestion.java]
+
+1. 编写程序完成连接MySQL 5000次的操作
+2. 看看有什么问题，耗时又是多久. => 数据库连接池
+
+#### 25.11.2 传统获取 Connection 问题分析
