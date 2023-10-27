@@ -12,7 +12,7 @@ public class Thread02 {
         //创建了Thread对象，把 dog对象（实现Runnable）,放入Thread
         Thread thread = new Thread(dog);
         thread.start();
-        
+
         Tiger tiger = new Tiger();//实现了 Runnable
         ThreadProxy threadProxy = new ThreadProxy(tiger);
         threadProxy.start();
