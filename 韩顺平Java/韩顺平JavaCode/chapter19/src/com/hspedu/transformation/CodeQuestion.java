@@ -1,9 +1,6 @@
 package com.hspedu.transformation;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author ZhouYu
@@ -24,5 +21,8 @@ public class CodeQuestion {
         String s = br.readLine();
         System.out.println("读取到的内容：" + s);
         br.close();
+
+//        InputStreamReader
+//        OutputStreamWriter
     }
 }
