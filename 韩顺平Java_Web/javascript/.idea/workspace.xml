@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b6cc5480-b6e2-419d-bbe2-44c671b44bc9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.function-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.js-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.object_define.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2.function-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2.js-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2.object_define.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javascript.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/array_define.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cathomework.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/createElement.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datetype.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eg_bulboff.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eg_bulbon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/function-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/1.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/2.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/wugui-game.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/getElementById.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/getElementsByName.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/getElementsByTagName.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hello.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html-dom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/eg_bulboff.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/eg_bulbon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js-use-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/my.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js弱类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js演示1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ok.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onblur.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onchange.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onclick.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/onsubmit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/simple_function.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/css.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/关系运算符.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/函数课堂练习.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组遍历.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/条件运算符.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/逻辑运算符.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/hello.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2Y9ONUVagX81mSdTlFNpE6tCAvw" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b6cc5480-b6e2-419d-bbe2-44c671b44bc9" name="Changes" comment="" />
+      <created>1699934289526</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699934289526</updated>
+      <workItem from="1699934290556" duration="9399000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
