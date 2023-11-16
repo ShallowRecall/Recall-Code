@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 /**
- * @author 韩顺平
+ * @author Zhou Yu
  * @version 1.0
  */
 public class Dom4j_ {
