@@ -311,3 +311,110 @@ String sql = "select count(*) from admin where username = ? and password = ?";
 3. 传统获取连接的方式，不能控制创建的连接数量，如连接过多，也可能导致内存泄漏，MySQL崩溃。
 4. 解决传统开发中的数据库连接问题，可以采用数据库连接池技术(connection pool)。
 
+#### 25.11.3 数据库连接池种类
+
+1. JDBC的数据库连接池使用 javax.sql.DataSource 来表示，DataSource只是一个接口，该接口通常由第三方提供实现[提供.jar]
+2. ==C3P0==数据库连接池，速度相对较慢，稳定性不错（hibernate，spring）
+3. Proxool数据库连接池，有监控连接池状态的功能，稳定性较c3p0差一点
+4. BoneCP数据库连接池，速度快
+5. ==Druid==（德鲁伊）是阿里提供的数据库连接池，集BDCP、C3P0、Proxool优点于一身的数据库连接池
+
+#### 25.11.4 C3P0 应用实例
+
+使用代码实现c3p0 数据库连接池，配置文件放src目录下[C3P0_.java]
+
+#### 25.11.5 Druid（德鲁伊）应用实例
+
+使用代码实现Druid（德鲁伊）数据库连接池 [Druid_.java]
+
+#### 25.11.6 将 JDBCUtils 工具类改成 Druid（德鲁伊）实现
+
+通过德鲁伊数据库连接池获取连接对象 [JDBCUtilsByDruid.java]
+
+### 25.13 Apache—DBUtils
+
+#### 25.12.1 先分析一个问题
+
+1. 关闭connection 后，resultSet 结果集无法使用
+2. resultSet 不利于数据的管理
+3. 示意图
+
+![image-20231126134522619](第 25 章 JDBC和数据库连接池.assets/image-20231126134522619.png)
+
+#### 25.12.2 用自己的土方法来解决
+
+[testSelectToArrayList.java]
+
+#### 25.12.3 基本介绍
+
+​	commons-dbutils 是 Apache 组织提供的一个开源JDBC工具类库，它是对JDBC的封装，使用dbutils能极大简化jdbc编码的工作量
+
+- DbUtils类
+
+1. QueryRunner类：该类封装了SQL的执行，是线程安全的。可以实现增、删、改、查、批处理
+2. 使用QueryRunner类实现查询
+3. ResultSetHandler接口：该接口用于处理java.sql.ResultSet，将数据按要求转换为另一种形式
+
+> ArrayHandler：把结果集中的第一行数据转成对象数组。
+>
+> ArrayListHandler：把结果集中的每一行数据都转成一个数组，再存放到List中。
+>
+> BeanHandler：将结果集中的第一行数据封装到一个对应的JavaBean实例中。
+>
+> BeanListHander：将结果集中的每一行数据封装到一个对应的JavaBean实例中，存放到List里。
+>
+> ColumnListHanler：将结果集中某一列的数据存放到List中。
+>
+> KeyedHandler(name)：将结果集中每行数据都封装到Map里，再把这些map再存到一个map里，其key为指定的key。
+>
+> MapHandler：将结果集中的第一行数据封装到一个Map里，key是列名，value就是对应的值。
+>
+> MapListHandler：将结果集中的每一行数据都封装到一个Map里，然后再存放到List
+
+#### 25.12.4 应用实例
+
+使用DBUtils+数据连接池(德鲁伊)方式，完成对表actor的crud
+
+![image-20231126140406270](第 25 章 JDBC和数据库连接池.assets/image-20231126140406270.png)
+
+[DBUtils_USE.java]
+
+#### 25.12.5 表和JavaBean 的类型映射关系
+
+![image-20231126140530955](第 25 章 JDBC和数据库连接池.assets/image-20231126140530955.png)
+
+### 25.13 DAO 和 增删改查 通用方法-BasicDao
+
+#### 25.13.1 先分析一个问题
+
+apache-dbutils+Druid 简化了JDBC开发，但还有不足：
+
+1. SQL 语句是固定，不能通过参数传入，通用性不好，需要进行改进，更方便执行 ==增删改查==
+2. 对于select 操作，如果有返回值，返回类型不能固定，需要使用泛型
+3. 将来的表很多，业务需求复杂，不能只靠一个Java类完成
+4. 引出 ==> BasicDAO 
+
+![image-20231126141106354](第 25 章 JDBC和数据库连接池.assets/image-20231126141106354.png)
+
+#### 25.13.2 基本说明
+
+1. DAO：data access object 数据访问对象
+2. 这样的通用类，称为 BasicDao，专门和数据库交互的，即完成对数据库(表)的crud操作。
+3. 在BasicDao 的基础上，实现一张表 对应一Dao，更好的完成功能，比如Customer表—Customer.java类(javabean)-CustomerDao.java
+
+#### 25.13.3 BasicDAO 应该实例
+
+完成一个简单设计
+
+[com.hspedu.dao_]
+
+1. com.hspedu.dao_.utils //工具类
+2. com.hspedu.dao_.domain //javabean
+3. com.hspedu.dao_.dao //存放XxxDAO 和 BasicDAO
+4. com.hspedu.dao_.test //写测试类
+
+#### 25.13.4 课后练习
+
+开发GoodsDao和Goods，完成对goods表的crud
+
+![image-20231126142111157](第 25 章 JDBC和数据库连接池.assets/image-20231126142111157.png)
