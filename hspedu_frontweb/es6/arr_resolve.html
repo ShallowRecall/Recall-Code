@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组解构赋值</title>
+    <script type="text/javascript">
+
+        let arr = [1, 2, 3];
+        //如果要看某个变量的类型
+        console.log("arr=>", arr);
+        //数组解构[取出元素]
+        //1. 传统
+        let x = arr[0], y = arr[1], z = arr[2];
+        console.log(x, y, z);
+        //2. ES6 风格
+        let [a, b, c] = arr;
+        console.log("========================");
+        console.log(a, b, c);
+
+        let [num1, num2, num3] = [100, 200, 300];
+        console.log(num1, num2, num3);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

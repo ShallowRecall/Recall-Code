@@ -1,8 +1,10 @@
-package com.hspedu.ajax.dao;
+package com.recall.furns.dao;
 
 
 
-import com.hspedu.ajax.utils.JDBCUtilsByDruid;
+
+
+import com.recall.furns.utils.JDBCUtilsByDruid;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;

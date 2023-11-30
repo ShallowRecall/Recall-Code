@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let 使用注意事项和细节</title>
+    <script type="text/javascript">
+        /**
+
+         let 细节1
+         (1) let 声明的变量，在代码块中，则作用域在代码块中
+         (2) var 声明的变量，在代码块中，作用域没有限制
+         */
+        {
+            var name = "韩顺平教育";
+            let job = "java工程师";
+            console.log("name=", name);
+            console.log("job=", job);
+        }
+
+        console.log("name=", name);
+        //console.log("job=", job);
+
+        /*
+        let 细节2
+        1. var 可以声明多次
+        2. let 只能声明一次
+         */
+
+        var num1 = 100;
+        var num1 = 200;
+        console.log(num1);
+        let num2 = 600;
+        //Syntax => 语法
+        // let num2 = 900;//Uncaught SyntaxError: redeclaration of let num2
+
+        console.log(num2);
+
+        /*
+        let 细节3
+        1. let 不存在变量提升
+        2. var 存在变量提升
+         */
+
+        console.log("x=", x);//undefined
+        var x = "tom";
+
+        console.log("z=", z);//can't access lexical declaration 'z' before initialization
+        let z = "mary";
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
