@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var cal = {
+            oper: "/",
+            arr: [1, 2, 3, 5]
+        }
+
+        function f1({oper, arr}) {
+            let res = 0;//初始化的值，要分析考虑
+            //这里还可以考虑arr的传入,并且做分析
+            //判断arr 是不是null，并且arr.length <= 1，就直接返回arr[0]
+            if ("+" == oper) {
+                res = arr[0]
+                for (let i = 1; i < arr.length; i++) {
+                    res += arr[i];
+                }
+            } else if ("-" == oper) {
+                res = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    res -= arr[i];
+                }
+            } else if ("*" == oper) {
+                res = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    res *= arr[i];
+                }
+            } else if ("/" == oper) {
+                res = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    res /= arr[i];
+                }
+            } else {
+                console.log("oper输入不正确..")
+            }
+            return res;
+        }
+
+        console.log("f1运算的结果=", f1(cal));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

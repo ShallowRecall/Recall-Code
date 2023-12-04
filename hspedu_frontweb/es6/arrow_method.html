@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数的使用</title>
+    <script type="text/javascript">
+        //传统
+        var f1 = function (n) {
+            return n * 2;
+        }
+        console.log("传统= " + f1(2))
+        //ES6, 箭头函数使用
+
+        let f2 = (n) => {
+            return n * 2;
+        }
+        console.log("f2() 结果=", f2(100));
+        //上面的es6 函数写法，还可以简化
+        let f3 = n => n * 3;
+        console.log("f3() 结果", f3(100));//
+
+        //函数也可以传给一个变量
+
+        function hi(f4) {
+            console.log(f4(900));
+        }
+
+        //java 匿名类
+        hi((n) => {
+            return n + 100;
+        });
+        // hi(n => n + 100);
+
+        hi((n) => {
+            return n - 100;
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

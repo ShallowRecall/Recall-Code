@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明对象的简写方式</title>
+    <script type="text/javascript">
+        const age = 800;
+        const name = "牛魔王"
+        // 传统 声明/定义对象
+        let monster = {name: name, age: age};
+        // ES6 声明/定义对象
+        //解读
+        //1. {name, age} : 表示对象的属性名是name 和 age
+        //2. 属性name的值是从变量/常量 name来的
+        let monster02 = {name, age};
+        console.log("monster02=>", monster02);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

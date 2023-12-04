@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise代码重排完成多次ajax</title>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="script/promise_utils.js"></script>
+    <script type="text/javascript">
+        //promise代码重排，完成多次ajax请求
+        get("data/student_100.json").then((data) => {
+            console.log("第一次ajax请求，返回的数据=", data);
+            return get(`data/class_${data.class_id}.json`);
+        }).then((data) => {
+            console.log("第二次ajax请求，返回数据=", data);
+            return get(`data/school_${data.school_id}.json`);
+        }).then((data) => {
+            console.log("第三次ajax请求，返回数据=", data);
+        }).catch((err) => {
+            console.log("promise异步请求异常=", err);
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

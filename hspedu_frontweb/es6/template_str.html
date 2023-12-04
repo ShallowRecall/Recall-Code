@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板字符串的使用</title>
+    <script type="text/javascript">
+        //1. 字符串，换行会原生输出
+        let str1 = `for(int i = 0;i < 10;i++){
+        System.out.println("i="+i);
+        }`;
+        console.log("str1=", str1);
+        //2. 字符串插入变量和表达式。变量名写在 ${} 中，${} 中可以放入 JavaScript 表达式.
+        let name = "hspedu教育";
+        //解读：
+        //(1) 当解析${name},就找最近的name遍历，进行替换
+        //(2) 然后可以得到最后解析的字符串
+        let str2 = `教育名称=${name}`;
+        let str3 = `1+2=${1 + 2}`;
+        let n1 = 80;
+        let n2 = 20;
+        let str4 = `${n1}+${n2}=${n1 + n2}`;
+        console.log("str2=", str2);
+        console.log("str3=", str3);
+        console.log("str4=", str4);
+
+        //3. 字符串中调用函数
+
+        function sayHi(name) {
+            return "hi " + name;
+        }
+
+        let name2 = "tom";
+        let str5 = `sayHi() 返回的结果是=${sayHi('jack')}`;
+        let str6 = `sayHi() 返回的结果是=${sayHi(name2)}`;
+
+        console.log("str5=", str5);
+        console.log("str6=", str6);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

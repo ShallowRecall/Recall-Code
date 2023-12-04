@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue快速入门</title>
+</head>
+<body>
+<!--解读
+1. div元素不是必须的，也可以是其它元素，比如span，但是约定都是讲vue实例挂载到div
+2. 因为div 更加适合做布局
+3. id 不是必须为app，是程序员指定，一般我们就使用app
+-->
+<div id="app">
+    <!--解读
+    1. {{message}} : 插值表达式
+    2. message 就是从module 的data 数据池来设置
+    3. 当我们的代码执行时，会到data{} 数据池中区匹配数据，如果匹配上，就进行替换
+        ，如果匹配上，就会输出空
+    -->
+    <h1>欢迎你{{message}}-{{name}}</h1>
+</div>
+<div id="appx">
+    <!--解读
+    1. {{message}} : 插值表达式
+    2. message 就是从module 的data 数据池来设置
+    3. 当我们的代码执行时，会到data{} 数据池中区匹配数据，如果匹配上，就进行替换
+        ，如果匹配上，就会输出空
+    -->
+    <h1>欢迎你{{message}}-{{name}}</h1>
+</div>
+<!--引入vue.js-->
+<script type="text/javascript" src="vue.js"></script>
+<script>
+    //创建vue对象
+    /**
+     * 解读
+     * 1. 创建Vue 对象实例
+     * 2. 我们在控制台输出vm对象，看看该对象的结构！(data/listeners)
+     */
+    let vm = new Vue({
+        el: "#app", //创建的vue实例挂载到 id=app的div
+        data: { //data{} 表示数据池(model的有了数据)，有很多数据 ，以k-v形式设置(根据业务需要要设置)
+            message: "Hello-Vue~~~!",
+            name: "韩顺平教育~~~"
+        }
+    })
+    let vm2 = new Vue({
+        el: "#appx", //创建的vue实例挂载到 id=app的div
+        data: { //data{} 表示数据池(model的有了数据)，有很多数据 ，以k-v形式设置(根据业务需要要设置)
+            message: "Hello-Vue!",
+            name: "韩顺平教育"
+        }
+    })
+    console.log("vm=>", vm);
+    console.log(vm._data.message);
+    console.log(vm._data.name);
+    console.log(vm.message);
+    console.log(vm.name);
+
+</script>
+</body>
+</html>

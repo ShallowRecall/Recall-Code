@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象运算符的扩展</title>
+    <script type="text/javascript">
+        let cat = {name: "小花猫", age: 2};
+        // let cat2 = cat;
+        // cat2.name = "大花猫";
+        // console.log("cat=>", cat);
+        // console.log("cat2=>", cat2);
+        // 拷贝对象(深拷贝)
+        let cat2 = {...cat};
+        cat2.name = "中花猫";
+        console.log("cat=", cat);
+        console.log("cat2=", cat2);
+
+        // 合并对象[深拷贝]
+        let monster = {name: "白骨精", age: 100};
+        let car = {brand: "奔驰", price: 800000};
+        let monster_car = {...monster, ...car};
+        monster_car.name = "狐狸精";
+        console.log("monster=>", monster);
+        console.log("monster_car=>", monster_car);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
