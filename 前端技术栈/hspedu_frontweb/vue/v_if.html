@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染 v-if</title>
+</head>
+<body>
+<div id="app">
+    <!--这里小伙伴还可以看到checkbox的 checked属性的值-->
+    <input type="checkbox" v-model="sel">是否同意条款[v-if实现]
+    <!--
+    老师解读 v-if/v-else 会根据 返回的值,来决定是否动态创建对应的子组件 <h1>
+    -->
+    <h1 v-if="sel">你同意条款</h1>
+    <h1 v-else>你不同意条款</h1>
+</div>
+<script src="vue.js"></script>
+<script>
+    //为了调试方便, 使用vm接收Vue实例
+    let vm = new Vue({
+        el: '#app',
+        data: {//data数据池
+            sel: false
+        }
+    })
+</script>
+</body>
+</html>

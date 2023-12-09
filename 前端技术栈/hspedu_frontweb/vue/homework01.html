@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>请输入图片名称1.jpg-2.jpg-3.jpg</h1>
+    <!--说明
+        1. 这里我们使用了数据的双向渲染-data{} 数据池的 img_src
+    -->
+    <input type="text" v-model="img_src"><br><br>
+    <img :src="img_src" :height="img_height"><br><br>
+    <img src="1.jpg" :height="img_height">
+    <img src="2.jpg" :height="img_height">
+    <img src="3.jpg" :height="img_height">
+</div>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app", //创建的vue实例挂载到 id=app的div
+        data: { //data{} 表示数据池(model的有了数据)，有很多数据 ，以k-v形式设置(根据业务需要要设置)
+            img_src: "1.jpg",
+            img_height: "100px"
+        }
+    })
+</script>
+
+</body>
+</html>

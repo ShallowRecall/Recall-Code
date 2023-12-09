@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据渲染</title>
+</head>
+<body>
+<script src="vue.js"></script>
+<div id="app">
+    <h1>{{message}}</h1>
+    <!--解读
+    1. v-bind是数据单向渲染：data数据池绑定的数据变化，会影响view
+    2. v-model="hobby.val" 是数据的双向渲染，
+        (1)data数据池绑定的数据变化，会影响view 【底层机制是 Data Bindings】
+        (2) view 关联的元素变化，会影响data数据池的数据 【底层机制是Dom Listeners】
+    -->
+    <input type="text" v-model="hobby.val"><br><br>
+    <input type="text" :value="hobby.val"><br><br>
+    <p>你输入的爱好是：{{hobby.val}}</p>
+</div>
+<script>
+    let vm = new Vue({
+        el: "#app", //创建的vue实例挂载到 id=app的div
+        data: { //data{} 表示数据池(model的有了数据)，有很多数据 ，以k-v形式设置(根据业务需要要设置)
+            message: "hi,输入你的爱好",
+            hobby: {
+                val: "购物"
+            }
+        }
+    })
+</script>
+</body>
+</html>

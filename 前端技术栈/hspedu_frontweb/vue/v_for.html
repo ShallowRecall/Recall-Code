@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for 列表渲染</title>
+</head>
+<body>
+<div id="app">
+    <!--
+        基本语法:
+        <li v-for="变量 in 数字">{{ 变量 }}</li>-->
+    <h1>简单的列表渲染</h1>
+    <ul>
+        <li v-for="i in 3">{{i}}</li>
+    </ul>
+    <!--
+        基本语法:
+        <li v-for="(变量, 索引) in 值">{{ 变量 }} - {{ 索引 }}</li>
+    -->
+    <h1>简单的列表渲染-带索引</h1>
+    <ul>
+        <li v-for="(i,index) in 3">{{i}}-{{index}}</li>
+    </ul>
+    <h1>遍历数据列表</h1>
+    <!-- 语法:
+        <tr v-for="对象 in 对象数组">
+            <td>{{对象的属性}}</td>
+        </tr>
+     -->
+    <table width="400px" border="1px">
+        <tr v-for="(monster,index) in monsters">
+            <td>{{index}}</td>
+            <td>{{monster.id}}</td>
+            <td>{{monster.name}}</td>
+            <td>{{monster.age}}</td>
+        </tr>
+    </table>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: { //数据池
+            monsters: [
+                {id: 1, name: '牛魔王', age: 800},
+                {id: 2, name: '黑山老妖', age: 900},
+                {id: 3, name: '红孩儿', age: 200}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

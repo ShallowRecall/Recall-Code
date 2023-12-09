@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理-作业1</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    <button v-on:click="add">点击增加+1</button>
+    <!--解读
+    1. 这里count + 2 的count数据是data数据池的count
+    -->
+    <button v-on:click="count += 2">点击增加+2</button>
+    <p>你的按钮被点击了{{count}}次</p>
+</div>
+<script src="vue.js"></script>
+<!--创建一个vue实例，并挂载到id=app的div-->
+<script>
+    let vm = new Vue({
+        el: "#app", //el 就是element的简写
+        data: { //data{} 表示数据池(model中数据)
+            message: "Vue事件处理的作业",
+            count: 0 //点击的次数
+        },
+        methods: {
+            add() {
+                //修改data数据池的count
+                //因为data 和 methods在同一个vue实例中，因此可以通过this.数据方式访问
+                this.count += 1;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

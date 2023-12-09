@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理-作业2</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    请输入书名：<input type="text" v-model:value="bookName">
+    <button v-on:click="show">点击显示书名~</button>
+</div>
+<script src="vue.js"></script>
+<!--创建一个vue实例，并挂载到id=app的div-->
+<script>
+    let vm = new Vue({
+        el: "#app", //el 就是element的简写
+        data: { //data{} 表示数据池(model中数据)
+            message: "Vue事件处理的作业",
+            bookName: "天龙八部"
+        },
+        methods: {
+            show() {
+                //如果要访问当前Vue实例的数据池的数据，需要带上this
+                //否则或报错 "ReferenceError: bookName is not defined"
+                alert("当前你输入的书名是:" + this.bookName);
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

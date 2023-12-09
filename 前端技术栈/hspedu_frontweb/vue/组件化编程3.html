@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化编程-局部组件</title>
+</head>
+<body>
+<div id="app">
+    <h1>组件化编程-局部组件</h1>
+    <!--使用局部组件 ,该组件是从挂载到app的vue中的-->
+    <my_counter></my_counter><br/>
+    <my_counter></my_counter><br/>
+    <my_counter></my_counter><br/>
+</div>
+
+<div id="app2">
+    <h1>组件化编程-局部组件-app2</h1>
+    <!--使用局部组件 -->
+    <hsp_counter></hsp_counter><br/>
+    <hsp_counter></hsp_counter><br/>
+</div>
+<script src="vue.js"></script>
+<script>
+
+    //定义一个组件, 组件的名称为 buttonCounter
+    //老韩扩展
+    //1. 可以把常用的组件，定义在某个commons.js中 export
+    //2. 如果某个页面需要使用， 直接import
+    const buttonCounter = {
+        template: `<button v-on:click="click()">点击次数= {{count}} 次【局部组件化】</button>`,
+        data() {//这里需要注意，和原来的方式不一样!!!!
+            return {
+                count: 10
+            }
+        },
+        methods: {
+            click() {
+                this.count++;
+            }
+        }
+    }
+
+    //创建Vue实例，必须有
+    let vm = new Vue({
+        el: "#app",//Vue实例的挂载点
+        components: { //引入/注册某个组件, 此时my_counter就是一个组件, 是一个局部组件,他的使用范围在当前vue
+            'my_counter': button
+            Counter
+        }
+    })
+
+    let vm2 = new Vue({
+        el: "#app2",//Vue实例的挂载点
+        components :{//引入/注册组件buttonCounter
+            'hsp_counter': buttonCounter
+        }
+    })
+
+
+</script>
+</body>
+</html>

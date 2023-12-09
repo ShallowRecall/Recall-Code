@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for课后作业</title>
+</head>
+<body>
+<div id="app">
+    <h1>学生成绩列表-及格的学生</h1>
+    <table border="1px" width="500px">
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>age</td>
+            <td>score</td>
+        </tr>
+        <tr v-for="student in students" v-if="student.score >= 60">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.score}}</td>
+        </tr>
+    </table>
+</div>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            students: [
+                {id: 1, name: "jack", age: 20, score: 70},
+                {id: 2, name: "tom", age: 10, score: 50},
+                {id: 3, name: "mary", age: 22, score: 100},
+                {id: 4, name: "milan", age: 21, score: 40}
+            ]
+        }
+    })
+</script>
+</body>
+</html>

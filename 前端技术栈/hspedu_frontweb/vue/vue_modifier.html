@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue修饰符使用</title>
+</head>
+<body>
+<div id="app">
+    <!-- 老韩解读
+            1. 修饰符用于指出一个指令应该以特殊方式绑定。
+            2. v-on:submit.prevent的.prevent 修饰符表示阻止表单提交的默认行为
+            3. 执行 程序员指定的方法
+     -->
+    <form action="http://www.baidu.com" v-on:submit.prevent="onMySubmit">
+        妖怪名: <input type="text" v-model="monster.name"><br/><br/>
+        <button type="submit">注册</button>
+    </form>
+    <p>服务返回的数据是{{count}}</p>
+    <h1>修饰符扩展案例</h1>
+    <button v-on:click.once="onMySubmit">点击一次</button>
+    <br/>
+    <input type="text" v-on:keyup.enter="onMySubmit">
+    <input type="text" v-on:keyup.down="onMySubmit">
+    <input type="text" v-model.trim="count">
+</div>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {//数据池
+            monster: {//monster数据(对象)的属性, 可以动态生成
+            },
+            count: 0
+        },
+        methods: {//方法池
+            onMySubmit() {
+                //console.log("我们自己的表单提交处理...");
+                //"", null, undefined都是false
+                if (this.monster.name) {
+                    console.log("提交表单 name=", this.monster.name);
+                    //这里，程序员就可以根据自己的业务发出ajax请求到后端
+                    //得到数据后，在进行数据更新
+                    this.count = 666;
+                } else {
+                    console.log("请输入名字..");
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

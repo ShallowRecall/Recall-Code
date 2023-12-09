@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染 v-show</title>
+</head>
+<body>
+<div id="app">
+    <!--这里小伙伴还可以看到checkbox的 checked属性的值-->
+    <input type="checkbox" v-model="sel">是否同意条款[v-show实现]
+    <h1 v-show="sel">你同意条款</h1>
+    <h1 v-show="!sel">你不同意条款</h1>
+</div>
+<script src="vue.js"></script>
+<script>
+    //为了调试方便, 使用vm接收Vue实例
+    let vm = new Vue({
+        el: '#app',
+        data: {//data数据池
+            sel: false
+        }
+    })
+</script>
+</body>
+</html>
