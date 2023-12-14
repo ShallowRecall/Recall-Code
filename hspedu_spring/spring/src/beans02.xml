@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--指定属性文件
+   说明
+   1. 先把这个文件修改成提示All Problem
+   2. 提示错误，将光标放在context 输入alt+enter 就会自动引入namespace
+   3. location="classpath:my.properties" 表示指定属性文件的位置
+   4. 提示，需要带上 classpath
+   -->
+    <context:property-placeholder location="classpath:my.properties"/>
+
+    <!--配置Monster对象
+    1. 通过属性文件给monster对象的属性赋值
+    2. 这时我们的属性值通过${属性名}
+    3. 这里说的 属性名 就是 my.properties文件中的 k=v 的k
+    -->
+    <bean class="com.hspedu.spring.bean.Monster" id="monster1000">
+        <property name="monsterId" value="${monsterId}"/>
+        <property name="skill" value="${skill}"/>
+        <property name="name" value="${name}"/>
+    </bean>
+
+
+    <!--配置House对象-->
+    <bean class="com.hspedu.spring.bean.House" id="house"
+          init-method="init"
+          destroy-method="destroy">
+        <property name="name" value="大豪宅"/>
+    </bean>
+
+    <bean class="com.hspedu.spring.bean.House" id="house02"
+          init-method="init"
+          destroy-method="destroy">
+        <property name="name" value="香港豪宅"/>
+    </bean>
+
+    <!--配置了一个Monster对象-->
+
+
+    <!--配置后置处理器对象
+    解读
+    1. 当我们在beans02.xml 容器配置文件中 配置了 MyBeanPostProcessor
+    2. 这时后置处理器对象，就会作用在该容器创建的Bean对象中
+    3. 已经时针对所有对象编程 -> 切面编程AOP
+    -->
+    <bean class="com.hspedu.spring.bean.MyBeanPostProcessor" id="myBeanPostProcessor"/>
+
+</beans>
