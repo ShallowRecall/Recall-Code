@@ -1,6 +1,9 @@
 package com.hspedu.spring.test;
 
 import com.hspedu.spring.bean.*;
+import com.hspedu.spring.component.UserAction;
+import com.hspedu.spring.component.UserDao;
+import com.hspedu.spring.component.UserService;
 import com.hspedu.spring.service.MemberServiceImpl;
 import com.hspedu.spring.web.OrderAction;
 import org.junit.jupiter.api.Test;
@@ -15,6 +18,48 @@ import java.io.File;
  * @version 1.0
  */
 public class SpringBeanTest {
+
+    //通过注解来配置Bean
+    @Test
+    public void setProByAutoWired() {
+
+        ApplicationContext ioc =
+                new ClassPathXmlApplicationContext("beans06.xml");
+
+        UserService userService = ioc.getBean("userService", UserService.class);
+        System.out.println("ioc容器中的userService=" + userService);
+
+        UserAction userAction = ioc.getBean("userAction", UserAction.class);
+//        System.out.println("userAction" + userAction);
+        userAction.sayOk();
+
+    }
+
+
+    //通过注解来配置Bean
+    @Test
+    public void setBeanByAnnotation() {
+
+        ApplicationContext ioc =
+                new ClassPathXmlApplicationContext("beans05.xml");
+
+        UserDao userDao = ioc.getBean(UserDao.class);
+        //在默认情况下，注解标识的类创建对象后，在容器中，id 为类名的首字母小写
+        UserDao userDao1 = ioc.getBean("userDao", UserDao.class);
+        System.out.println("userDao1=" + userDao1);
+        UserService userService = ioc.getBean(UserService.class);
+        UserAction userAction = ioc.getBean(UserAction.class);
+//        MyComponent myComponent = ioc.getBean(MyComponent.class);
+
+        System.out.println("userDao=" + userDao);
+        System.out.println("userService=" + userService);
+        System.out.println("userAction=" + userAction);
+//        System.out.println("myComponent=" + myComponent);
+
+        System.out.println("ok");
+
+
+    }
 
 
     //通过spring el 对属性赋值
