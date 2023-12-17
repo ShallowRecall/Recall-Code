@@ -4,6 +4,7 @@ import com.hspedu.spring.bean.*;
 import com.hspedu.spring.component.UserAction;
 import com.hspedu.spring.component.UserDao;
 import com.hspedu.spring.component.UserService;
+import com.hspedu.spring.depinjection.PhoneService;
 import com.hspedu.spring.service.MemberServiceImpl;
 import com.hspedu.spring.web.OrderAction;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,16 @@ import java.io.File;
  * @version 1.0
  */
 public class SpringBeanTest {
+
+    //通泛型依赖配置Bean
+    public void setProByDependencyInjection() {
+        ApplicationContext ioc =
+                new ClassPathXmlApplicationContext("beans07.xml");
+        PhoneService phoneService = ioc.getBean("phoneService", PhoneService.class);
+        phoneService.save();
+        System.out.println("ok");
+    }
+
 
     //通过注解来配置Bean
     @Test
