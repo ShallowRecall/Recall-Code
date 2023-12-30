@@ -41,5 +41,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="com.springsource.net.sf.cglib-2.2.0" level="project" />
+    <orderEntry type="library" name="spring-aspects-5.3.8" level="project" />
   </component>
 </module>
