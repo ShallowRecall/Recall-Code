@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--配置自动扫描的包，同时引入对应的名称空间-->
+    <!--说明：
+    1. 如果我们是普通的Java项目，beans.xml 放在src下
+    2. 如果我们是Java Maven 项目，beans.xml 放在 src/main/resources
+    -->
+    <context:component-scan base-package="com.hspedu.spring.component" />
+</beans>
