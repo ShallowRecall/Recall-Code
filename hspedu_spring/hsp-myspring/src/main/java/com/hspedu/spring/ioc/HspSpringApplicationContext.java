@@ -1,5 +1,6 @@
 package com.hspedu.spring.ioc;
 
+import com.hspedu.spring.annotation.Autowired;
 import com.hspedu.spring.annotation.Component;
 import com.hspedu.spring.annotation.ComponentScan;
 import com.hspedu.spring.annotation.Scope;
@@ -7,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Enumeration;
@@ -151,9 +153,31 @@ public class HspSpringApplicationContext {
 
         //得到Bean的clazz对象
         Class clazz = beanDefinition.getClazz();
-        //使用反射得到实例
+
         try {
+            //使用反射得到实例
             Object instance = clazz.getDeclaredConstructor().newInstance();
+            //分析：这里加入依赖注入的业务逻辑
+
+            //1. 遍历当前要创建的对象的所有字段
+            for (Field declaredField : clazz.getDeclaredFields()) {
+
+                //2. 判断这个字段是否有@Autowired
+                if (declaredField.isAnnotationPresent(Autowired.class)) {
+                    //处理@Autowired 的required
+                    //Autowired annotation = declaredField.getAnnotation(Autowired.class);
+                    //annotation.required()=> 然后进行其它处理
+
+                    //3.得到这个字段名称
+                    String name = declaredField.getName();
+                    //4. 通过getBean方法来获取要组装的对象
+                    Object bean = getBean(name);
+                    //5. 进行组装
+                    declaredField.setAccessible(true);//因为属性是private，需要暴破
+                    declaredField.set(instance, bean);
+                }
+            }
+
             return instance;
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -182,7 +206,7 @@ public class HspSpringApplicationContext {
             } else {// 如果不是单例的，我们就调用createBean，反射一个对象
                 return createBean(beanDefinition);
             }
-        }else {// 如果不存在
+        } else {// 如果不存在
             //抛出一个空指针异常-也可以自定义
             throw new NullPointerException("没有该bean");
         }

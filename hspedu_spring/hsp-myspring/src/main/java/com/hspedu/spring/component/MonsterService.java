@@ -1,5 +1,6 @@
 package com.hspedu.spring.component;
 
+import com.hspedu.spring.annotation.Autowired;
 import com.hspedu.spring.annotation.Component;
 import com.hspedu.spring.annotation.Scope;
 
@@ -13,4 +14,13 @@ import com.hspedu.spring.annotation.Scope;
 @Component(value = "monsterService") //把MonsterService注入我们自己的spring容器中
 @Scope(value = "prototype")
 public class MonsterService {
+    //这里我们使用自己的@Auowired 来修饰属性
+    //表示该属性，是通过容器完成依赖注入
+    //说明：我们实现按照名字组装即可
+    @Autowired
+    private MonsterDao monsterDao;
+
+    public void m1(){
+        monsterDao.hi();
+    }
 }

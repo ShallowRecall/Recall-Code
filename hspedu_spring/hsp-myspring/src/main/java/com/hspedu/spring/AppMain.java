@@ -14,7 +14,16 @@ public class AppMain {
         HspSpringApplicationContext hspSpringApplicationContext =
                 new HspSpringApplicationContext(HspSpringConfig.class);
 
+        //测试一下依赖注入的功能
         MonsterService monsterService =
+                (MonsterService) hspSpringApplicationContext.getBean("monsterService");
+
+        monsterService.m1();
+
+
+
+
+        /*MonsterService monsterService =
                 (MonsterService) hspSpringApplicationContext.getBean("monsterService");
         MonsterService monsterService2 =
                 (MonsterService) hspSpringApplicationContext.getBean("monsterService");
@@ -28,7 +37,7 @@ public class AppMain {
                 (MonsterDao) hspSpringApplicationContext.getBean("monsterDao");
 
         System.out.println("monsterDao=" + monsterDao);
-        System.out.println("monsterDao2=" + monsterDao2);
+        System.out.println("monsterDao2=" + monsterDao2);*/
 
 
         System.out.println("ok");
