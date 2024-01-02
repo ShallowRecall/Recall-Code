@@ -7,8 +7,9 @@ import org.apache.commons.lang.StringUtils;
 
 
 import java.io.File;
-import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -23,19 +24,38 @@ public class HspSpringApplicationContext {
     private ConcurrentHashMap<String, BeanDefinition> beanDefinitionMap =
             new ConcurrentHashMap<>();
     //定义属性SingletonObject -> 存放单例对象
-    private ConcurrentHashMap<String, Object> stringObject =
+    private ConcurrentHashMap<String, Object> singletonObjects =
             new ConcurrentHashMap<>();
 
     //构造器
     public HspSpringApplicationContext(Class configClass) {
 
-        beanDefinitionSca(configClass);
+        //完成扫描指定包
+        beanDefinitionBySca(configClass);
 
+        //通过beanDefinitionMap，初始化singletonObject 单例池
+        //封装成方法
+        //遍历所有的beanDefinitionMap对象
+        Enumeration<String> keys = beanDefinitionMap.keys();
+        while (keys.hasMoreElements()) {
+            //得到beanName
+            String beanName = keys.nextElement();
+            //通过beanName 得到对应的beanDefinition对象
+            BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
+            //判断bean是singleton还是prototype
+            if ("singleton".equalsIgnoreCase(beanDefinition.getScope())) {
+                //将该bean实例放入到singletonObject 集合
+                Object bean = createBean(beanDefinition);
+                singletonObjects.put(beanName, bean);
+            }
+        }
+        System.out.println("singletonObjects 单例池=" + singletonObjects);
         System.out.println("beanDefinitionMap=" + beanDefinitionMap);
+
     }
 
     //该方法完成对指定包的扫描，并将Bean信息封装到BeanDefinition对象，再放入到Map
-    public void beanDefinitionSca(Class configClass) {
+    public void beanDefinitionBySca(Class configClass) {
         this.ConfigClass = configClass;
         //获取要扫描的包
         //1. 先得到HspSpringConfig配置的@ComponentScan(value = "com.hspedu.spring.component")
@@ -125,8 +145,46 @@ public class HspSpringApplicationContext {
         }
     }
 
-    //编写方法返回容器对象
-    public Object getBean(String name) {
+    //完成createBean(BeanDefinition beanDefinition) 方法
+    //说明，目前先简单实现
+    private Object createBean(BeanDefinition beanDefinition) {
+
+        //得到Bean的clazz对象
+        Class clazz = beanDefinition.getClazz();
+        //使用反射得到实例
+        try {
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+            return instance;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        //如果反射创建对象失败
         return null;
+    }
+
+    //编写方法getBean(String name),编写方法返回容器对象
+    public Object getBean(String name) {
+
+        //加一个判断，传入的beanName是否在beanDefinitionMap中存在...
+        if (beanDefinitionMap.containsKey(name)) {//如果存在
+
+            BeanDefinition beanDefinition = beanDefinitionMap.get(name);
+            //得到beanDefinition的scope，分别进行处理
+            if ("singleton".equalsIgnoreCase(beanDefinition.getScope())) {
+                //说明是单例配置，直接从单例池获取
+                return singletonObjects.get(name);
+            } else {// 如果不是单例的，我们就调用createBean，反射一个对象
+                return createBean(beanDefinition);
+            }
+        }else {// 如果不存在
+            //抛出一个空指针异常-也可以自定义
+            throw new NullPointerException("没有该bean");
+        }
     }
 }
