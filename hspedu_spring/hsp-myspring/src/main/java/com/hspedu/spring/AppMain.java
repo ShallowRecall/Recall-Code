@@ -11,6 +11,7 @@ import com.hspedu.spring.ioc.HspSpringConfig;
  */
 public class AppMain {
     public static void main(String[] args) {
+        //创建自己的容器
         HspSpringApplicationContext hspSpringApplicationContext =
                 new HspSpringApplicationContext(HspSpringConfig.class);
 

@@ -4,6 +4,8 @@ import com.hspedu.spring.annotation.Autowired;
 import com.hspedu.spring.annotation.Component;
 import com.hspedu.spring.annotation.ComponentScan;
 import com.hspedu.spring.annotation.Scope;
+import com.hspedu.spring.processor.BeanPostProcessor;
+import com.hspedu.spring.processor.InitializingBean;
 import org.apache.commons.lang.StringUtils;
 
 
@@ -11,7 +13,9 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -28,6 +32,10 @@ public class HspSpringApplicationContext {
     //定义属性SingletonObject -> 存放单例对象
     private ConcurrentHashMap<String, Object> singletonObjects =
             new ConcurrentHashMap<>();
+
+    //定义一个属性beanPostProcessorList，=> 存放后置处理器
+    private List<BeanPostProcessor> beanPostProcessorList =
+            new ArrayList<>();
 
     //构造器
     public HspSpringApplicationContext(Class configClass) {
@@ -47,7 +55,7 @@ public class HspSpringApplicationContext {
             //判断bean是singleton还是prototype
             if ("singleton".equalsIgnoreCase(beanDefinition.getScope())) {
                 //将该bean实例放入到singletonObject 集合
-                Object bean = createBean(beanDefinition);
+                Object bean = createBean(beanName, beanDefinition);
                 singletonObjects.put(beanName, bean);
             }
         }
@@ -104,6 +112,26 @@ public class HspSpringApplicationContext {
                             //如果该类使用了@Component，说明是Spring bean
                             System.out.println("是一个Spring bean =" + clazz + " 类名=" + className);
 
+                            //说明
+                            //1. 为了方便，这里将后置处理器放入到一个ArrayList
+                            //2. 如果发现是一个后置处理器，放入到 beanPostProcessorList
+                            //3. 在原生的Spring容器中，对后置处理器还是走的getBean，createBean
+                            //   ,但是需要我们在singletonObjects中加入相应的业务逻辑
+
+
+                            //判断当前的这个clazz有没有实现BeanPostProcessor
+                            //说明，这里我们不能使用 instanceof 来判断clazz是否实现了BeanPostProcessor
+                            //原因：clazz不是一个实例对象，而是一个类对象/clazz，要使用isAssignableFrom
+                            //将其当做一个语法理解
+                            if (BeanPostProcessor.class.isAssignableFrom(clazz)) {
+
+                                BeanPostProcessor beanPostProcessor =
+                                        (BeanPostProcessor) clazz.newInstance();
+                                //将其放入到beanPostProcessorList
+                                beanPostProcessorList.add(beanPostProcessor);
+                                continue;
+                            }
+
                             //先得到beanName
                             //1. 得到Component注解
                             Component componentAnnotation =
@@ -149,7 +177,7 @@ public class HspSpringApplicationContext {
 
     //完成createBean(BeanDefinition beanDefinition) 方法
     //说明，目前先简单实现
-    private Object createBean(BeanDefinition beanDefinition) {
+    private Object createBean(String beanName, BeanDefinition beanDefinition) {
 
         //得到Bean的clazz对象
         Class clazz = beanDefinition.getClazz();
@@ -178,6 +206,50 @@ public class HspSpringApplicationContext {
                 }
             }
 
+            System.out.println("=========创建好实例===========" + instance);
+
+
+            //我们在Bean的初始化方法前，调用后置处理器的before方法
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                //在后置处理器的before方法，可以对spring容器的bean进行处理
+                //然后返回处理后的bean实例，相当于做了一个前置处理
+                //原生Spring容器，比我们这个还要复杂
+                Object current =
+                        beanPostProcessor.postProcessBeforeInitialization(instance, beanName);
+                if (current != null){
+                    instance = current;
+                }
+            }
+
+
+            //这里判断是否需要执行Bean的初始化方法
+            //1. 判断当前创建的Bean对象是否实现了InitializingBean
+            //2. instanceof 表示判断某个对象的运行类型是不是某个类型或者
+            //   某个类型的子类型
+            //3. 这里就使用到接口编程
+            if (instance instanceof InitializingBean) {
+                //3. 将instance转成InitializingBean类型
+                try {
+                    ((InitializingBean) instance).afterPropertiesSet();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+            //我们在Bean的初始化方法后，调用后置处理器的after方法
+            //我们在Bean的初始化方法前，调用后置处理器的before方法
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                //在后置处理器的before方法，可以对spring容器的bean进行处理
+                //然后返回处理后的bean实例，相当于做了一个后置处理
+                Object current =
+                        beanPostProcessor.postProcessAfterInitialization(instance, beanName);
+                if (current != null) {
+                    instance = current;
+                }
+            }
+
+            System.out.println("-----------------------------------------------------------");
             return instance;
         } catch (InstantiationException e) {
             e.printStackTrace();
@@ -204,7 +276,7 @@ public class HspSpringApplicationContext {
                 //说明是单例配置，直接从单例池获取
                 return singletonObjects.get(name);
             } else {// 如果不是单例的，我们就调用createBean，反射一个对象
-                return createBean(beanDefinition);
+                return createBean(name, beanDefinition);
             }
         } else {// 如果不存在
             //抛出一个空指针异常-也可以自定义
