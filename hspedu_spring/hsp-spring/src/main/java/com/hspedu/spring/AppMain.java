@@ -1,5 +1,6 @@
 package com.hspedu.spring;
 
+import com.hspedu.spring.aop.SmartAnimalable;
 import com.hspedu.spring.component.UserAction;
 import com.hspedu.spring.component.UserDao;
 import com.hspedu.spring.component.UserService;
@@ -26,5 +27,13 @@ public class AppMain {
 
         UserService userService = (UserService) ioc.getBean("userService");
         System.out.println("userService=" + userService);
+
+        //测试一下当前的依赖注入
+        userService.m1();
+
+        //测试一下AOP
+        SmartAnimalable smartDog = ioc.getBean(SmartAnimalable.class);
+        smartDog.getSum(10, 2);
+
     }
 }
