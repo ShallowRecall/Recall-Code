@@ -2,6 +2,7 @@ package com.hspedu.spring;
 
 import com.hspedu.spring.component.MonsterDao;
 import com.hspedu.spring.component.MonsterService;
+import com.hspedu.spring.component.SmartAnimalable;
 import com.hspedu.spring.ioc.HspSpringApplicationContext;
 import com.hspedu.spring.ioc.HspSpringConfig;
 
@@ -40,6 +41,14 @@ public class AppMain {
         System.out.println("monsterDao=" + monsterDao);
         System.out.println("monsterDao2=" + monsterDao2);*/
 
+        //这里我们测试一下AOP机制是否生效了
+
+        SmartAnimalable smartDog = (SmartAnimalable) hspSpringApplicationContext.getBean("smartDog");
+        //System.out.println("smartDog=" + smartDog.getClass());
+
+        smartDog.getSum(10, 2);
+
+        smartDog.getSub(10, 2);
 
         System.out.println("ok");
     }
