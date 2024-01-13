@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="c3p0-0.9.1.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/c3p0-0.9.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jdbc-5.3.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-orm-5.3.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-tx-5.3.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-tx-5.3.8-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-tx-5.3.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
