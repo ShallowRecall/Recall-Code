@@ -7,6 +7,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="springmvc" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="c3p0-0.9.1.2" />
+          <element id="library" level="project" name="lib" />
+        </element>
       </element>
     </root>
   </artifact>

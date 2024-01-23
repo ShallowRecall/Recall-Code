@@ -5,29 +5,27 @@
          version="4.0">
 
     <!--配置前端控制器/中央控制器/分发控制器
-   1.用户的请求都会经过它的处理
-   -->
+    1. 用户的请求都会经它的处理
+    -->
     <servlet>
         <servlet-name>springDispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!--老师解读
-        1. 如果我们没有配置 contextConfigLocation
-        2. 默认按照这样的位置去定位spring配置文件 /WEB-INF/springDispatcherServlet-servlet.xml
-        -->
-        <!--配置属性 contextConfigLocation, 指定DispatcherServlet 去操作的spring配置文件-->
-        <!--<init-param>-->
-        <!--    <param-name>contextConfigLocation</param-name>-->
-        <!--    <param-value>classpath:applicationContext-mvc.xml</param-value>-->
-        <!--</init-param>-->
+        <!--配置属性 contextConfigLocation，指定 DispatcherServlet 去操作的spring配置文件-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:applicationContext-mvc.xml</param-value>
+        </init-param>
         <!--在web项目启动时，就自动的加载DispatcherServlet-->
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>springDispatcherServlet</servlet-name>
-        <!--老师说明
-        1. 这里我们配置的url-pattern是 / ,表示用户的请求都经过 DispatcherServlet
-        2. 这样配置也这次rest 风格的url请求
+        <!--说明
+        1. 这里我们配置的uri-pattern是 / ，表示用户的请求都经过 DispatcherServlet
+        2. 这样配置也支持rest 风格的url请求
         -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 </web-app>
