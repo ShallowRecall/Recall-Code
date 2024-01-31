@@ -1,7 +1,10 @@
 package com.hspedu.web.datavalid.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
+import javax.validation.constraints.NotNull;
 
 import java.util.Date;
 
@@ -11,12 +14,26 @@ import java.util.Date;
  */
 public class Monster {
     private Integer id;
+
+    //email是String，使用@NotEmpty
+    @NotEmpty
     private String email;
 
+    //@Range(min = 1,max = 100)
+    //表示接收的age值，在 1-100之间
+    @NotNull(message = "age不能为空")
+    //@NotEmpty(message = "age不能为空-notempty")
+    @Range(min = 1, max = 100)
     private Integer age;
+    //@NotEmpty 表示name不能为空
+    @NotEmpty
     private String name;
+
+    @NotNull(message = "生日不能为空")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
+
+    @NotNull(message = "薪水不能为空")
     @NumberFormat(pattern = "###,###.##")
     private Float salary;
 
