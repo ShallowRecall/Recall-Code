@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author ZhouYu
@@ -28,12 +29,45 @@ public class FurnServiceTest {
     }
 
     @Test
-    public void save(){
+    public void save() {
 
         Furn furn = new Furn(null, "小风扇", "顺平家具~~", new BigDecimal(180), 666, 70, "assets/images/product-image/1.jpg");
 
         furnService.save(furn);
 
         System.out.println("添加成功~");
+    }
+
+    @Test
+    public void findAll() {
+
+        List<Furn> furns = furnService.findAll();
+        for (Furn furn : furns) {
+            System.out.println("furn-" + furn);
+        }
+    }
+
+    @Test
+    public void update(){
+
+        Furn furn = new Furn();
+        furn.setId(1);
+        furn.setName("北欧风格小桌子~~");
+        furn.setMaker("小猪家具");
+        // 因为imgPath属性有一个默认值，
+        // 所以如果我们不希望生成update 语句有对imgPath 字段修改，就显式的设置null
+
+        furn.setImgPath(null);
+
+        furnService.update(furn);
+
+        System.out.println("修改OK");
+    }
+
+    @Test
+    public void del(){
+
+        furnService.del(11);
+        System.out.println("删除OK");
     }
 }
