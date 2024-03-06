@@ -1,10 +1,12 @@
 package com.hspedu.furn.service.impl;
 
 import com.hspedu.furn.bean.Furn;
+import com.hspedu.furn.bean.FurnExample;
 import com.hspedu.furn.dao.FurnMapper;
 import com.hspedu.furn.service.FurnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -43,5 +45,25 @@ public class FurnServiceImpl implements FurnService {
     @Override
     public void del(Integer id) {
         furnMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Furn findById(Integer id) {
+        return furnMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Furn> findByCondition(String name) {
+
+        FurnExample furnExample = new FurnExample();
+        // 通过criteria 对象可以设置查询的条件
+        FurnExample.Criteria criteria = furnExample.createCriteria();
+
+        //判断name是有具体的内容
+        if (StringUtils.hasText(name)) {
+            criteria.andNameLike("%" + name + "%");
+        }
+        // 如果name没有传值null ,""," ",依然是查询所有的记录
+        return furnMapper.selectByExample(furnExample);
     }
 }

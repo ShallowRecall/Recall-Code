@@ -70,4 +70,13 @@ public class FurnServiceTest {
         furnService.del(11);
         System.out.println("删除OK");
     }
+
+    @Test
+    public void findByCondition(){
+
+        List<Furn> furnList = furnService.findByCondition("风格");
+        for (Furn furn : furnList) {
+            System.out.println(furn);
+        }
+    }
 }
