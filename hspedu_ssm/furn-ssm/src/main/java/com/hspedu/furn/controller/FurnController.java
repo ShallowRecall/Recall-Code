@@ -6,10 +6,14 @@ import com.hspedu.furn.bean.Furn;
 import com.hspedu.furn.bean.Msg;
 import com.hspedu.furn.service.FurnService;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author ZhouYu
@@ -32,10 +36,23 @@ public class FurnController {
      */
     @PostMapping("/save")
     @ResponseBody
-    public Msg save(@RequestBody Furn furn) {
-        furnService.save(furn);
-        //返回成功
-        return Msg.success();
+    public Msg save(@RequestBody Furn furn, Errors errors) {
+
+        Map<String, Object> map = new HashMap<>();
+
+        List<FieldError> fieldErrors = errors.getFieldErrors();
+        for (FieldError fieldError : fieldErrors) {
+            map.put(fieldError.getField(), fieldError.getDefaultMessage());
+        }
+
+        if (map.isEmpty()) {// 说明后端校验通过，因为没有发现校验错误
+            furnService.save(furn);
+            //返回成功
+            return Msg.success();
+        } else {
+            //校验失败，把校验错误信息封装到Mag对象，并返回
+            return Msg.fail().add("errorMsg", map);
+        }
     }
 
     @RequestMapping("/furns")
@@ -105,8 +122,8 @@ public class FurnController {
     @ResponseBody
     @RequestMapping("/furnsByConditionPage")
     public Msg listFurnNyConditionPage(@RequestParam(defaultValue = "1") Integer pageNum,
-                              @RequestParam(defaultValue = "5") Integer pageSize,
-                              @RequestParam(defaultValue = "") String search) {
+                                       @RequestParam(defaultValue = "5") Integer pageSize,
+                                       @RequestParam(defaultValue = "") String search) {
 
         PageHelper.startPage(pageNum, pageSize);
         List<Furn> furnList = furnService.findByCondition(search);

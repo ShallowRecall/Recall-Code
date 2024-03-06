@@ -63,18 +63,23 @@
       <el-form :model="form" :rules="rules" ref="form" label-width="120px">
         <el-form-item label="家居名" prop="name">
           <el-input v-model="form.name" style="width: 80%"/>
+          {{serverValidErrors.name}}
         </el-form-item>
         <el-form-item label="厂商" prop="maker">
           <el-input v-model="form.maker" style="width: 80%"/>
+          {{serverValidErrors.maker}}
         </el-form-item>
         <el-form-item label="价格" prop="price">
           <el-input v-model="form.price" style="width: 80%"/>
+          {{serverValidErrors.price}}
         </el-form-item>
         <el-form-item label="销量" prop="sales">
           <el-input v-model="form.sales" style="width: 80%"/>
+          {{serverValidErrors.sales}}
         </el-form-item>
         <el-form-item label="库存" prop="stock">
           <el-input v-model="form.stock" style="width: 80%"/>
+          {{serverValidErrors.stock}}
         </el-form-item>
       </el-form>
       <template #footer>
@@ -113,6 +118,8 @@ export default {
   components: {},
   data() {
     return {
+      // 存放后端校验错误信息
+      serverValidErrors:{},
       // 增加分页相应的数据绑定
       currentPage: 1,//当前页
       pageSize: 5,//每页显示记录数
@@ -202,10 +209,20 @@ export default {
             //1. url: http://localhost:8080/ssm/save
             //2. this.form: 携带的数据
             request.post("/api/save", this.form).then(res => {
-              console.log("res-", res);
-              this.dialogVisible = false
-              // 调用list方法，刷新数据
-              this.list()
+              //console.log("res-", res);
+              if (res.code === 200){
+                //关闭对话框,更新数据
+                this.dialogVisible = false
+                // 调用list方法，刷新数据
+                this.list()
+              }else if (res.code === 400){//后端校验失败
+                //取出后端校验失败的信息，赋给serverValidErrors
+                this.serverValidErrors.name = res.extend.errorMsg.name
+                this.serverValidErrors.maker = res.extend.errorMsg.maker
+                this.serverValidErrors.price = res.extend.errorMsg.price
+                this.serverValidErrors.sales = res.extend.errorMsg.sales
+                this.serverValidErrors.stock = res.extend.errorMsg.stock
+              }
             })
           }else {//校验没有通过
 

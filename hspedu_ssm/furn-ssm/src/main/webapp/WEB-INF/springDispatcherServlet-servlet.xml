@@ -24,7 +24,7 @@
 
     <!--加入两个常规配置-->
     <!--支持SpringMVC的高级功能，比如JSR303校验，映射动态请求-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven/>
     <!--将springmvc不能处理的请求，交给tomcat处理，比如css，js-->
     <mvc:default-servlet-handler/>
 </beans>

@@ -1,20 +1,33 @@
 package com.hspedu.furn.bean;
 
+
+
+import org.hibernate.validator.constraints.Range;
 import org.springframework.util.StringUtils;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class Furn {
     private Integer id;
 
+    @NotEmpty(message = "请输入家具名")
     private String name;
 
+    @NotEmpty(message = "请输入制造厂商")
     private String maker;
 
+    @NotNull(message = "请输入数字")
+    @Range(min = 0,message = "价格不能小于0")
     private BigDecimal price;
 
+    @NotNull(message = "请输入数字")
+    @Range(min = 0,message = "销量不能小于0")
     private Integer sales;
 
+    @NotNull(message = "请输入数字")
+    @Range(min = 0,message = "库存不能小于0")
     private Integer stock;
 
     //当创建Furn对象 imgPath 为url时，imgPath 为null时，imgPath 给默认值(默认图片路径)
