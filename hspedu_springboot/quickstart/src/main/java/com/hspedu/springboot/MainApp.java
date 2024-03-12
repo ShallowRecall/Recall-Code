@@ -1,9 +1,6 @@
 package com.hspedu.springboot;
 
-import com.hspedu.springboot.bean.A;
-import com.hspedu.springboot.bean.Cat;
-import com.hspedu.springboot.bean.Dog;
-import com.hspedu.springboot.bean.Monster;
+import com.hspedu.springboot.bean.*;
 import com.hspedu.springboot.config.BeanConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -123,6 +120,7 @@ public class MainApp {
 
         System.out.println("monster04 bean 是否存在-" + ioc.containsBean("monster04"));
         //演示@ImportResource 使用 end ===
+
 
 
     }
