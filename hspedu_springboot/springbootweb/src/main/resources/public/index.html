@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>hello,recall</h1>
+基本注解：
+<hr/>
+<a href="/monster/100/king">@PathVariable-路径变量 monster/100/king</a><br/><br/>
+<!--
+<a href="/monster/100/king">@PathVariable-路径变量 monster/100/king</a><br/><br/>
+http://localhost:8080/xxx/yyy/index.html
+/monster/100/king 会以http://localhost:8080 ==> http://localhost:8080/monster/100/king
+monster/100/king 会以当前的路径 ==> http://localhost:8080/xxx/yyy/monster/100/king
+-->
+<a href="/requestHeader">@RequestHeader-获取Http请求头 </a><br/><br/>
+<a href="/hi?name=Recall&fruit=apple&fruit=pear&id=300&address=北京">@RequestParam-获取请求参数</a><br/><br/>
+<a href="/cookie">@CookieValue-获取cookie值</a><br><br>
+<a href="/login">@RequestAttribute-获取request域属性</a>
+<hr>
+<h1>测试@RequestBody获取数据：获取POST请求体</h1>
+<form action="/save" method="post">
+    名字：<input name="name"><br>
+    年龄：<input name="age"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

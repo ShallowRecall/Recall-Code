@@ -1,0 +1,41 @@
+monster:
+  id: 100
+  name: 牛魔王
+  age: 500
+  isMarried: true
+  birth: 2000/11/11
+  # 对象
+  #car: {name: 宝马, price: 200000}  # 行内风格
+  car: # 换行格式
+    name: 宝马
+    price: 300000
+  #数组
+  #skill: [芭蕉扇,牛魔拳] # 行内风格
+  skill: # 换行风格
+    - 芭蕉扇
+    - 牛魔拳
+  # hobby: [喝酒，吃肉] # 行内格式
+  hobby:
+    - 吃酒~
+    - 吃肉~
+  #map-属于对象
+  #wife: {no1: 玉面狐狸,no2: 铁扇公主} #行内风格
+  wife:
+    no1: 玉面狐狸~
+    no2: 铁扇公主~
+  #salaries: [10000,20000] # 行内风格
+  salaries:
+    - 10000
+    - 20000
+  cars: #因为cars k-v v是list<Car> 所以我们使用换行风格
+    group1:
+      - { name: 奔驰,price: 300000 }
+      - name: 保时捷
+        price: 400000
+    group2:
+      - { name: 奔驰~,price: 300000 }
+      - name: 保时捷~
+        price: 400000
+
+
+
