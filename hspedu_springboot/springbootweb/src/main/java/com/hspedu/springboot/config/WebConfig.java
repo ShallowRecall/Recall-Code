@@ -36,7 +36,7 @@ public class WebConfig {
                  * 3. 增加的自定义转换器会注册到 converters 容器中
                  * 4. converters 底层结构是 ConcurrentHashMap 内置有124转换器
                  */
-               /* registry.addConverter(new Converter<String, Car>() {
+                registry.addConverter(new Converter<String, Car>() {
                     @Override
                     public Car convert(String source) {//source就是 传入的字符串
                         //这里就加入自定义的转换业务代码
@@ -50,11 +50,11 @@ public class WebConfig {
                         }
                         return null;
                     }
-                });*/
+                });
 
                 // 换种写法来注册自定义转换器-方便理解
 
-                //1. 先创建自定义转换器
+               /* //1. 先创建自定义转换器
                 Converter<String, Car> hspConverter = new Converter<String, Car>() {
                     @Override
                     public Car convert(String source) {//source就是 传入的字符串
@@ -93,7 +93,7 @@ public class WebConfig {
                 //2. 添加转换器到converters
                 registry.addConverter(hspConverter);
                 registry.addConverter(hspConverter2);
-                registry.addConverter(hspConverter3);
+                registry.addConverter(hspConverter3);*/
             }
         };
     }
