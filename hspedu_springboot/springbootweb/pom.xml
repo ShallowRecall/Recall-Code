@@ -40,6 +40,11 @@
             -->
             <optional>true</optional>
         </dependency>
+        <!--引入处理xml的依赖-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
