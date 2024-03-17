@@ -28,13 +28,13 @@ public class AdminController {
         if (StringUtils.hasText(admin.getName()) && "666".equals(admin.getPassword())) {
 
             // 将登录用户保存到session
-            session.setAttribute("LoginAdmin", admin);
+            session.setAttribute("loginAdmin", admin);
 
             // 合法，重定向到mange.html
             // 不使用请求转发是防止刷新页面会重复提交
             // 这里写 manage.html，因为这样可以更加明确的表示到哪个页面
             //manage.html 表示要去找 方法的映射路径为 manage.html
-            return "redirect://manage.html";
+            return "redirect:/manage.html";
         } else {
             //不合法，就重新登录，请求转发
             model.addAttribute("msg", "账号/用户错误");

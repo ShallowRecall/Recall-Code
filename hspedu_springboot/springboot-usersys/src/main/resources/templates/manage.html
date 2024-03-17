@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <title>管理后台</title>
 </head>
-<body>
-
+<body bgcolor="#CED3FE">
+<img src="images/1.GIF">
+<a href="#">返回管理界面</a> <a href="#" th:href="@{/}">安全退出</a> 欢迎您:[[${session.loginAdmin.name}]]
+<hr/>
+<div style="text-align: center">
+    <h1>管理雇员~</h1>
+    <table border="1px" cellspacing="0" bordercolor="green" style="width: 800px;">
+        <tr bgcolor="pink">
+            <td>id</td>
+            <td>name</td>
+            <td>password</td>
+            <td>email</td>
+            <td>age</td>
+        </tr>
+        <tr bgcolor="#ffc0cb" th:each="user:${users}">
+            <td th:text="${user.id}">a</td>
+            <td th:text="${user.name}">b</td>
+            <td th:text="${user.password}">c</td>
+            <td th:text="${user.email}">d</td>
+            <td th:text="${user.age}">e</td>
+        </tr>
+    </table>
+</div>
+<hr/>
+<img src="images/logo.png"/>
 </body>
 </html>

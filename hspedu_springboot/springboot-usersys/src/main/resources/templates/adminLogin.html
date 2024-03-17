@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<h1>Hello,Recall!</h1>
+<body bgcolor="#CED3FE">
+<img src="images/1.GIF">
+<hr/>
+<div style="text-align: center">
+    <h1>用户登陆</h1>
+    <form action="#" th:action="@{/login}" method="post">
+        <label style="color: red" th:text="${msg}"></label><br/>
+        用户名：<input type="text" style="width: 150px" name="name"><br><br>
+        密码：<input type="password" style="width: 150px" name="password"><br><br>
+        <input type="submit" value="登录">
+        <input type="reset" value="重新填写">
+    </form>
+</div>
+<hr/>
+<img src="images/logo.png">
 </body>
 </html>
