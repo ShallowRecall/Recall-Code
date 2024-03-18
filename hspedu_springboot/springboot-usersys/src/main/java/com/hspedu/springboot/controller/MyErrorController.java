@@ -1,5 +1,6 @@
 package com.hspedu.springboot.controller;
 
+import com.hspedu.springboot.exception.AccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,4 +27,16 @@ public class MyErrorController {
         return "manage";
     }
 
+    //编写方法，模拟一个AccessException
+    @GetMapping("/err3")
+
+    public String err3(String name){
+
+        // 如果用户不是tom，我们就认为，无权访问
+        if (!"tom".equals(name)){
+            //throw  new AccessException();
+            throw  new AccessException("自定义的AccessException..");
+        }
+        return "manage";//视图地址，请求转发
+    }
 }

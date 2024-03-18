@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
 
     // 提出一个问题，如何获取到异常发生的方法
 
-    @ExceptionHandler({ArithmeticException.class, NullPointerException.class})
+    @ExceptionHandler({ArithmeticException.class, NullPointerException.class, AccessException.class})
     public String handleAritException(Exception e, Model model, HandlerMethod handlerMethod) {
 
         log.info("异常信息={}", e.getMessage());
