@@ -1,23 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>用户登陆</title>
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.9.7/dist/css/layui.css" rel="stylesheet">
+    <!-- 如果需要图标，引入font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body bgcolor="#CED3FE">
-<img src="images/1.GIF">
-<hr/>
-<div style="text-align: center">
-    <h1>用户登陆</h1>
-    <form action="#" th:action="@{/login}" method="post">
-        <label style="color: red" th:text="${msg}"></label><br/>
-        用户名：<input type="text" style="width: 150px" name="name"><br><br>
-        密码：<input type="password" style="width: 150px" name="password"><br><br>
-        <input type="submit" value="登录">
-        <input type="reset" value="重新填写">
-    </form>
+<body>
+
+<!-- 引入Layui的JS -->
+<link href="//unpkg.com/layui@2.9.7/dist/js/layui.js" rel="stylesheet">
+
+<!-- 使用Layui的容器和表单布局 -->
+<div class="layui-container" style="margin-top: 50px;">
+    <div class="layui-row" style="margin-bottom: 20px;">
+        <div class="layui-col-md12">
+            <h1 class="layui-text-center">用户登陆</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md6 layui-col-md-offset3">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <!-- 显示错误信息的容器 -->
+                    <div class="layui-form-item" style="color: red;">
+                        <label th:text="${msg}" style="display: block;"></label>
+                    </div>
+                    <form class="layui-form" action="#" th:action="@{/login}" method="post">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">用户名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="name" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重新填写</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- 这里可以放置图片或其他元素 -->
+    <!-- <img src="images/logo.png" alt="Logo"> -->
 </div>
-<hr/>
-<img src="images/logo.png">
+
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+
+        // 监听提交
+        form.on('submit(formDemo)', function(data){
+            return true; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+    });
+</script>
+
 </body>
 </html>
