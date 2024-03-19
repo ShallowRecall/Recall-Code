@@ -19,7 +19,7 @@ import java.io.IOException;
  * 3. 是直接放行后，再经过拦截器，拦截器是否拦截要根据拦截器的拦截规则
  */
 @Slf4j
-@WebFilter(urlPatterns = {"/css/*", "images/*"})
+@WebFilter(urlPatterns = {"/css/*","/images/*"})
 public class Filter_ implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
