@@ -18,7 +18,7 @@ import java.io.IOException;
  * 5. 对于开发的原生的Servlet，需要使用 @ServletComponentScan指定要扫描的原生Servlet包
  * ，才会注入到spring 容器.
  */
-@WebServlet(urlPatterns = {"/servlet01","/servlet02"})
+//@WebServlet(urlPatterns = {"/servlet01","/servlet02"})
 public class Servlet_ extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
