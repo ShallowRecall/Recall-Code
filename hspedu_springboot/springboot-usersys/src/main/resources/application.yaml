@@ -3,3 +3,42 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 50MB
+  datasource: # 配置数据源
+    # 说明：如果没有指定useSSL=true ,启动项目会报红警告
+    url: jdbc:mysql://localhost:3306/furn_ssm?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: QY1989424334
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    # 配置druid和监控功能
+#    druid:
+#      stat-view-servlet:
+#        enabled: true
+#        login-username: Recall
+#        login-password: 123456
+#        reset-enable: false
+#      web-stat-filter: # 配置web监控
+#        enabled: true
+#        url-pattern: /*
+#        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+#      filter:
+#        stat: # sql监控
+#          slow-sql-millis: 1000
+#          log-slow-sql: true
+#          enabled: true
+#        wall: # 配置sql防火墙
+#          enabled: true
+#          config:
+#            drop-table-allow: false
+##            select-all-column-allow: false
+
+#server:
+#  # 配置端口
+#  port: 9999
+#  tomcat: # 对tomcat配置
+#    threads:
+#      max: 10 # 最大的工作线程，默认是200
+#      min-spare: 5 # 最小工作线程，默认是10
+#    accept-count: 200 # tomcat启动的线程达到最大值，接受排队的请求个数，默认是100
+#    max-connections: 2000 # 最大连接数，并发数
+#    connection-timeout: 10000 # 建立连接的超时时间，单位是毫秒
+#    # 还有很多其它的配置

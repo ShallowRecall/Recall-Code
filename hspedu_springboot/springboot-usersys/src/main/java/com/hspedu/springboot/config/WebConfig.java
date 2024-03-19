@@ -32,7 +32,7 @@ public class WebConfig /*implements WebMvcConfigurer*/ {
                 //注册拦截器
                 registry.addInterceptor(new LoginInterceptor())
                         .addPathPatterns("/**")
-                        .excludePathPatterns("/","/login","/images/**","/upload.html","/upload");
+                        .excludePathPatterns("/","/login","/images/**","/upload.html","/upload","/sql");
             }
         };
     }

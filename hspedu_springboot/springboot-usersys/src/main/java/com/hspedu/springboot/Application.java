@@ -1,9 +1,12 @@
 package com.hspedu.springboot;
 
+import com.alibaba.druid.support.http.StatViewServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author ZhouYu
@@ -21,4 +24,5 @@ public class Application {
         //ioc.stop(); // 停止容器
         System.out.println("hello");
     }
+
 }
