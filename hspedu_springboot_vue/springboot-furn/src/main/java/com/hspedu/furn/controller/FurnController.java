@@ -76,4 +76,13 @@ public class FurnController {
         furnService.removeById(id);
         return Result.success();
     }
+
+    // 增加方法[接口]，根据id，返回对应的家居信息
+    // 依然使用url占位符+@PathVariable
+    @GetMapping("/find/{id}")
+    public Result findById(@PathVariable Integer id) {
+        Furn furn = furnService.getById(id);
+        return Result.success(furn);// 返回成功的信息-携带查询到furn信息
+    }
+
 }

@@ -20,7 +20,7 @@
       <el-table-column prop="stock" label="库存"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
-          <el-button @click="handleEdit(scope.row)" type="text">编辑</el-button>
+          <el-button @click="handleEdit2(scope.row)" type="text">编辑</el-button>
           <!--引入一个确认框PopConfirm-->
           <!--          <el-button type="text">删除</el-button>-->
           <el-popconfirm title="确定删除吗？" @confirm="handleDel(scope.row.id)">
@@ -164,10 +164,28 @@ export default {
 
       this.form = JSON.parse(JSON.stringify(row))
       this.dialogVisible = true
-    }
-    ,
+    },
+    //新写一个方法handleEdit2(row)
+    //1. 通过row.id 发送请求Get
+    //2. 返回对应的家居信息
+    //3. 返回的家居信息取出，绑定到 this.form
+
+    handleEdit2(row) {
+      request.get("/api/find/" + row.id).then(res => {
+        if (res.code === "200") { //查询成功
+          //取出数据绑定this.form
+          this.form = res.data
+        } else {
+          this.$message({
+            type: "error",
+            message: res.msg
+          })
+        }
+      })
+      this.dialogVisible = true // 显示对话框
+    },
+    //add方法，显示添加的对话框
     add() {
-      //add方法，显示添加的对话框
       this.dialogVisible = true
       //每次显示添加对话框的时候，清空表单数据
       this.form = {}
