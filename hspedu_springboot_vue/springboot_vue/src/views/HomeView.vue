@@ -21,7 +21,13 @@
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)" type="text">编辑</el-button>
-          <el-button type="text">删除</el-button>
+          <!--引入一个确认框PopConfirm-->
+          <!--          <el-button type="text">删除</el-button>-->
+          <el-popconfirm title="确定删除吗？" @confirm="handleDel(scope.row.id)">
+            <template #reference>
+              <el-button size="mini" type="text">删除</el-button>
+            </template>
+          </el-popconfirm>
         </template>
       </el-table-column>
     </el-table>
@@ -79,6 +85,30 @@ export default {
     this.list()
   },
   methods: { //方法
+
+    //处理删除
+    handleDel(id) {
+      // 使用request发出请求，删除当前的家居
+      // 如何显示和关闭vue方法参数提示->settings->inlay hints
+      request.delete("/api/del/" + id).then(res => {
+        // 判断
+        if (res.code === "200") { //删除成功
+          this.$message({
+            type: "success",
+            message: "删除成功"
+          })
+        } else { //删除失败
+          this.$message({
+                type: "error",
+                message: res.msg
+              }
+          )
+        }
+      })
+      // 刷新家居列表
+      this.list()
+    },
+
     list() { //显示家居信息
       request.get("/api/furns").then(res => {
         // 将返回的数据和tableData进行绑定
