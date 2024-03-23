@@ -85,15 +85,40 @@ export default {
         this.tableData = res.data
       })
     },
-    save() { //添加
-      request.post("/api/save", this.form).then(
-          res => { // 是箭头函数
-            // res 就是后端程序返回给前端的结果
-            console.log("res=", res)
-            this.dialogVisible = false
-            this.list() //刷新家居列表
-          }
-      )
+    save() { //添加，修改
+
+      if (this.form.id) { //执行修改
+        // 因为request.put / get / post ...都是ajax异步请求
+        request.put("/api/update", this.form).then(
+            res => {
+              if (res.code === "200") {// 修改成功
+                // 需要提示-成功的消息框
+                this.$message({
+                  message: "更新成功",
+                  type: "success"
+                })
+              } else {
+                // 需要提示-失败的消息框
+                this.$message({
+                  message: "更新失败",
+                  type: "error"
+                })
+              }
+              // 刷新 家居列表
+              // 不显示对话框
+              this.list()
+              this.dialogVisible = false
+            })
+      } else {
+        request.post("/api/save", this.form).then(
+            res => { // 是箭头函数
+              // res 就是后端程序返回给前端的结果
+              console.log("res=", res)
+              this.dialogVisible = false
+              this.list() //刷新家居列表
+            }
+        )
+      }
     },
     handleEdit(row) {
       /*console.log("row1=", row)
@@ -109,7 +134,8 @@ export default {
 
       this.form = JSON.parse(JSON.stringify(row))
       this.dialogVisible = true
-    },
+    }
+    ,
     add() {
       //add方法，显示添加的对话框
       this.dialogVisible = true
