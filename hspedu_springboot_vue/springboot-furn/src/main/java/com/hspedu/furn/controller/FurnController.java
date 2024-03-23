@@ -65,4 +65,15 @@ public class FurnController {
         furnService.updateById(furn);
         return Result.success();
     }
+
+    // 处理删除
+
+    // 使用url占位符+@PathVariable 配合使用
+    // 使用rest 风格 -> del方式
+    @DeleteMapping("/del/{id}")
+    public Result del(@PathVariable Integer id) {
+        // 说明removeById 是Mybatis-Plus提供
+        furnService.removeById(id);
+        return Result.success();
+    }
 }
