@@ -12,9 +12,12 @@
     </div>
     <!-- 去掉字段的 width, 让其自适应 -->
     <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column sortable prop="date" label="日期"></el-table-column>
-      <el-table-column prop="name" label="姓名"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column prop="id" label="ID" sortable></el-table-column>
+      <el-table-column prop="name" label="家居名"></el-table-column>
+      <el-table-column prop="maker" label="厂家"></el-table-column>
+      <el-table-column prop="price" label="价格"></el-table-column>
+      <el-table-column prop="sales" label="销量"></el-table-column>
+      <el-table-column prop="stock" label="库存"></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
           <el-button @click="handleEdit(scope.row)" type="text">编辑</el-button>
@@ -69,21 +72,19 @@ export default {
       form: {}, //表单数据
       dialogVisible: false,// 控制对话框是否显示，默认false
       search: '',
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        },
-        {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        },
-      ]
+      tableData: []
     }
   },
+  created() { //在次方法中，调用list()，完成表格数据的显示
+    this.list()
+  },
   methods: { //方法
+    list() { //显示家居信息
+      request.get("/api/furns").then(res => {
+        // 将返回的数据和tableData进行绑定
+        this.tableData = res.data.data
+      })
+    },
     save() { //添加
       request.post("/api/save", this.form).then(
           res => { // 是箭头函数
