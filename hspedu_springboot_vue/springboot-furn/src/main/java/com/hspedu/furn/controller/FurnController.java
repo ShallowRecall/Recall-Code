@@ -5,10 +5,7 @@ import com.hspedu.furn.service.FurnService;
 import com.hspedu.furn.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -50,5 +47,22 @@ public class FurnController {
     public Result listFurns() {
         List<Furn> furns = furnService.list();
         return Result.success(furns);
+    }
+
+    // 处理修改
+
+    /**
+     * 说明：
+     * 1. @PutMapping 我们使用Rest风格，因为这里是修改的请求，使用put请求
+     * 2. @RequestBody：表示前端/客户端 发生的数据是以json格式来发送
+     *
+     * @param furn
+     * @return
+     */
+    @PutMapping("/update")
+    public Result update(@RequestBody Furn furn) {
+        //这个updateById是mybatis-plus提供的
+        furnService.updateById(furn);
+        return Result.success();
     }
 }

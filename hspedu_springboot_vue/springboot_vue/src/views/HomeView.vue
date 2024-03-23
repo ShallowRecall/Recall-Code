@@ -11,7 +11,7 @@
       <el-button style="margin-left: 10px" type="primary">查询</el-button>
     </div>
     <!-- 去掉字段的 width, 让其自适应 -->
-    <el-table :data="tableData" stripe style="width: 100%">
+    <el-table :data="tableData" stripe style="width: 90%">
       <el-table-column prop="id" label="ID" sortable></el-table-column>
       <el-table-column prop="name" label="家居名"></el-table-column>
       <el-table-column prop="maker" label="厂家"></el-table-column>
@@ -91,11 +91,24 @@ export default {
             // res 就是后端程序返回给前端的结果
             console.log("res=", res)
             this.dialogVisible = false
+            this.list() //刷新家居列表
           }
       )
     },
-    handleEdit() {
+    handleEdit(row) {
+      /*console.log("row1=", row)
+      // JSON.stringify(row) 转成json字符串
+      console.log("row2=", JSON.stringify(row))
+      // 把json字符串 转成json对象
+      console.log("row3=", JSON.parse(JSON.stringify(row)))*/
 
+      // 把得到的数据和form绑定，显示到对话框
+      // 说明：
+      // 1. JSON.parse(JSON.stringify(row)) 就是对行数据进行深拷贝
+      // 2. 这样点击的表格当前行的数据和弹出框的数据是独立的
+
+      this.form = JSON.parse(JSON.stringify(row))
+      this.dialogVisible = true
     },
     add() {
       //add方法，显示添加的对话框
