@@ -82,7 +82,7 @@ export default {
     list() { //显示家居信息
       request.get("/api/furns").then(res => {
         // 将返回的数据和tableData进行绑定
-        this.tableData = res.data.data
+        this.tableData = res.data
       })
     },
     save() { //添加
