@@ -1,18 +1,107 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!--    新增按钮-->
+    <div style="margin: 10px 0">
+      <el-button type="primary" @click="add">新增</el-button>
+      <el-button>其它</el-button>
+    </div>
+    <!--搜索-->
+    <div style="margin: 10px 0">
+      <el-input v-model="search" placeholder="请输入关键字" style="width: 30%"></el-input>
+      <el-button style="margin-left: 10px" type="primary">查询</el-button>
+    </div>
+    <!-- 去掉字段的 width, 让其自适应 -->
+    <el-table :data="tableData" stripe style="width: 100%">
+      <el-table-column sortable prop="date" label="日期"></el-table-column>
+      <el-table-column prop="name" label="姓名"></el-table-column>
+      <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column fixed="right" label="操作" width="100">
+        <template #default="scope">
+          <el-button @click="handleEdit(scope.row)" type="text">编辑</el-button>
+          <el-button type="text">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <!-- 添加家居的弹窗
+      说明:
+      1. el-dialog ：v-model="dialogVisible" 表示对话框, 和 dialogVisible 变量双向 绑定 控制是否显示对话框
+      2. el-form :model="form" 表示表单数据和 form 数据变量双向绑定
+      3. el-input v-model="form.name" 表示表单的 input 控件，名字为 name 需要和 后台 Javabean 属性一致
+         这样到后台才会进行数据的封装
+    -->
+    <el-dialog title="提示" v-model="dialogVisible" width="30%">
+      <el-form :model="form" label-width="120px">
+        <el-form-item label="家居名">
+          <el-input v-model="form.name" style="width: 80%"></el-input>
+        </el-form-item>
+        <el-form-item label="厂商">
+          <el-input v-model="form.maker" style="width: 80%"></el-input>
+        </el-form-item>
+        <el-form-item label="价格">
+          <el-input v-model="form.price" style="width: 80%"></el-input>
+        </el-form-item>
+        <el-form-item label="销量">
+          <el-input v-model="form.sales" style="width: 80%"></el-input>
+        </el-form-item>
+        <el-form-item label="库存">
+          <el-input v-model="form.stock" style="width: 80%"></el-input>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="save">确 定</el-button> </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+// 引入request组件/对象
+import request from '@/utils/request'
 
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  components: {},
+  data() { // 数据部分
+    return {
+      form: {}, //表单数据
+      dialogVisible: false,// 控制对话框是否显示，默认false
+      search: '',
+      tableData: [
+        {
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        },
+        {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        },
+      ]
+    }
+  },
+  methods: { //方法
+    save() { //添加
+      request.post("/api/save", this.form).then(
+          res => { // 是箭头函数
+            // res 就是后端程序返回给前端的结果
+            console.log("res=", res)
+            this.dialogVisible = false
+          }
+      )
+    },
+    handleEdit() {
+
+    },
+    add() {
+      //add方法，显示添加的对话框
+      this.dialogVisible = true
+      //每次显示添加对话框的时候，清空表单数据
+      this.form = {}
+    }
   }
 }
 </script>
