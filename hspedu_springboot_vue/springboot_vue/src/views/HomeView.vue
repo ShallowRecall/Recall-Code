@@ -53,20 +53,21 @@
          这样到后台才会进行数据的封装
     -->
     <el-dialog title="提示" v-model="dialogVisible" width="30%">
-      <el-form :model="form" label-width="120px">
-        <el-form-item label="家居名">
+      <el-form ref="form" :model="form" :rules="rules" label-width="120px">
+        <!--说明：prop="name"表示和rules的哪个规则关联-->
+        <el-form-item label="家居名" prop="name">
           <el-input v-model="form.name" style="width: 80%"></el-input>
         </el-form-item>
-        <el-form-item label="厂商">
+        <el-form-item label="厂商" prop="maker">
           <el-input v-model="form.maker" style="width: 80%"></el-input>
         </el-form-item>
-        <el-form-item label="价格">
+        <el-form-item label="价格" prop="price">
           <el-input v-model="form.price" style="width: 80%"></el-input>
         </el-form-item>
-        <el-form-item label="销量">
+        <el-form-item label="销量" prop="sales">
           <el-input v-model="form.sales" style="width: 80%"></el-input>
         </el-form-item>
-        <el-form-item label="库存">
+        <el-form-item label="库存" prop="stock">
           <el-input v-model="form.stock" style="width: 80%"></el-input>
         </el-form-item>
       </el-form>
@@ -95,14 +96,51 @@ export default {
       form: {}, //表单数据
       dialogVisible: false,// 控制对话框是否显示，默认false
       search: '',
-      tableData: []
+      tableData: [],
+      //定义添加表单的校验规则
+      rules: {
+        name: [
+          //这里我们可以写多个针对name 属性的校验规则
+          {required: true, message: "请输入家具名", trigger: 'blur'}
+        ],
+        maker: [
+          {required: true, message: "请输入厂商", trigger: 'blur'}
+        ],
+        price: [
+          {required: true, message: "请输入价格", trigger: 'blur'},
+          // 使用正则表达式对输入的数据进行校验
+          {
+            pattern: /^([1-9]\d*|0)(\.\d+)?$/,
+            message: "请输入数字",
+            trigger: 'blur'
+          }
+        ],
+        sales: [
+          {required: true, message: "请输入销量", trigger: 'blur'},
+          {pattern: /^([1-9]\d*|0)$/, message: '请输入数字', trigger: 'blur'}
+        ],
+        stock: [
+          {required: true, message: "请输入库存", trigger: 'blur'},
+          {pattern: /^([1-9]\d*|0)$/, message: '请输入数字', trigger: 'blur'}
+        ]
+      }
     }
   },
   created() { //在次方法中，调用list()，完成表格数据的显示
     this.list()
   },
   methods: { //方法
-
+    //add方法，显示添加的对话框
+    add() {
+      this.dialogVisible = true
+      this.form = {}
+      this.$nextTick(() => {
+        if (this.$refs.form) {
+          this.$refs.form.resetFields()
+        }
+      })
+    }
+    ,
     //处理pageSize的变化
     handlePageSizeChange(pageSize) {
       this.pageSize = pageSize
@@ -137,14 +175,14 @@ export default {
     },
 
     list() { //显示家居信息
-     /* request.get("/api/furns").then(res => {
-        // 将返回的数据和tableData进行绑定
-        this.tableData = res.data
-      })*/
+      /* request.get("/api/furns").then(res => {
+         // 将返回的数据和tableData进行绑定
+         this.tableData = res.data
+       })*/
 
       //分页查询 + 带条件
-      request.get("/api/furnsBySearchPage",{
-        params:{
+      request.get("/api/furnsBySearchPage", {
+        params: {
           pageNum: this.currentPage,
           pageSize: this.pageSize,
           search: this.search
@@ -181,14 +219,38 @@ export default {
               this.dialogVisible = false
             })
       } else {
-        request.post("/api/save", this.form).then(
+        /*request.post("/api/save", this.form).then(
             res => { // 是箭头函数
               // res 就是后端程序返回给前端的结果
               console.log("res=", res)
               this.dialogVisible = false
               this.list() //刷新家居列表
             }
-        )
+        )*/
+
+        // 添加时，和表单验证关联，如果没有验证通过，就不提交
+        this.$refs['form'].validate((valid) => {
+          //valid就是表单校验后返回的结果
+          if (valid) {//检验通过
+            request.post("/api/save", this.form).then(
+                res => { // 是箭头函数
+                  // res 就是后端程序返回给前端的结果
+                  console.log("res=", res)
+                  this.dialogVisible = false
+                  this.list() //刷新家居列表
+                }
+            )
+          } else {//校验没有通过
+            //提示一个错误的消息框
+            this.$message(
+                {
+                  type: "error",
+                  message: "验证没有通过，不提交"
+                }
+            )
+          }
+          return false //放弃提交
+        })
       }
     },
     handleEdit(row) {
@@ -224,12 +286,6 @@ export default {
         }
       })
       this.dialogVisible = true // 显示对话框
-    },
-    //add方法，显示添加的对话框
-    add() {
-      this.dialogVisible = true
-      //每次显示添加对话框的时候，清空表单数据
-      this.form = {}
     }
   }
 }
