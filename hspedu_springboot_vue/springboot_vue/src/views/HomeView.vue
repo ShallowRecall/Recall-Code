@@ -8,7 +8,7 @@
     <!--搜索-->
     <div style="margin: 10px 0">
       <el-input v-model="search" placeholder="请输入关键字" style="width: 30%"></el-input>
-      <el-button style="margin-left: 10px" type="primary">查询</el-button>
+      <el-button style="margin-left: 10px" type="primary" @click="list">查询</el-button>
     </div>
     <!-- 去掉字段的 width, 让其自适应 -->
     <el-table :data="tableData" stripe style="width: 90%">
@@ -142,11 +142,12 @@ export default {
         this.tableData = res.data
       })*/
 
-      //分页查询
-      request.get("/api/furnsByPage",{
+      //分页查询 + 带条件
+      request.get("/api/furnsBySearchPage",{
         params:{
           pageNum: this.currentPage,
-          pageSize: this.pageSize
+          pageSize: this.pageSize,
+          search: this.search
         }
       }).then(res => {
         // 将返回的数据和tableData进行绑定

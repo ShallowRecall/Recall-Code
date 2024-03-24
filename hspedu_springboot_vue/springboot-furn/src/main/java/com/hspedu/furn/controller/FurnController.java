@@ -1,11 +1,14 @@
 package com.hspedu.furn.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hspedu.furn.bean.Furn;
 import com.hspedu.furn.service.FurnService;
 import com.hspedu.furn.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -99,6 +102,31 @@ public class FurnController {
         // 这里通过page方法，返回Page对象，对象中就封装了分页数据
         Page<Furn> page = furnService.page(new Page<>(pageNum, pageSize));
         // 这里我们注意观察，返回的page数据结构是如何的？这样才能知道在前端如何绑定返回的数据。
+        return Result.success(page);
+    }
+
+    //方法：可以支持带条件的分页检索
+
+    /**
+     * @param pageNum  显示第几页
+     * @param pageSize 每页显示几条记录
+     * @param search   检索条件：家居名，默认是”“，表示不带条件检索，正常分页
+     * @return
+     */
+    @GetMapping("/furnsBySearchPage")
+    public Result listFurnsByConditionPage(@RequestParam(defaultValue = "1") Integer pageNum,
+                                           @RequestParam(defaultValue = "5") Integer pageSize,
+                                           @RequestParam(defaultValue = "") String search) {
+
+        // 先创建QueryWrapper，可以将我们的检索条件封装到QueryWrapper
+        QueryWrapper<Furn> queryWrapper = Wrappers.query();
+        // 判断search 是否有内容
+        if (StringUtils.hasText(search)) {
+            queryWrapper.like("name", search);
+        }
+
+        Page<Furn> page = furnService.page(new Page<>(pageNum, pageSize), queryWrapper);
+
         return Result.success(page);
     }
 }
