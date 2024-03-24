@@ -31,6 +31,20 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <!--引入分页组件-可以根据自己的需要进行定制-->
+    <div style="margin: 10px 0">
+      <el-pagination
+          @size-change="handlePageSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-sizes="[5,10]"
+          :page-size="pageSize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total">
+      </el-pagination>
+    </div>
+
     <!-- 添加家居的弹窗
       说明:
       1. el-dialog ：v-model="dialogVisible" 表示对话框, 和 dialogVisible 变量双向 绑定 控制是否显示对话框
@@ -75,6 +89,9 @@ export default {
   components: {},
   data() { // 数据部分
     return {
+      currentPage: 1,//当前页
+      pageSize: 5, //每页显示几条记录
+      total: 10, //一共有多少条记录，会通过请求获取到表中对应的记录数
       form: {}, //表单数据
       dialogVisible: false,// 控制对话框是否显示，默认false
       search: '',
@@ -86,6 +103,16 @@ export default {
   },
   methods: { //方法
 
+    //处理pageSize的变化
+    handlePageSizeChange(pageSize) {
+      this.pageSize = pageSize
+      this.list() // 刷新家居列表
+    },
+    //处理currentPage的变化
+    handleCurrentChange(pageNum) {
+      this.currentPage = pageNum
+      this.list() // 刷新家居列表
+    },
     //处理删除
     handleDel(id) {
       // 使用request发出请求，删除当前的家居
@@ -110,9 +137,22 @@ export default {
     },
 
     list() { //显示家居信息
-      request.get("/api/furns").then(res => {
+     /* request.get("/api/furns").then(res => {
         // 将返回的数据和tableData进行绑定
         this.tableData = res.data
+      })*/
+
+      //分页查询
+      request.get("/api/furnsByPage",{
+        params:{
+          pageNum: this.currentPage,
+          pageSize: this.pageSize
+        }
+      }).then(res => {
+        // 将返回的数据和tableData进行绑定
+        this.tableData = res.data.records
+        // 修改total
+        this.total = res.data.total
       })
     },
     save() { //添加，修改

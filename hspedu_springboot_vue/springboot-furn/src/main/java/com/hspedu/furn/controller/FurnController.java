@@ -1,5 +1,6 @@
 package com.hspedu.furn.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hspedu.furn.bean.Furn;
 import com.hspedu.furn.service.FurnService;
 import com.hspedu.furn.util.Result;
@@ -85,4 +86,19 @@ public class FurnController {
         return Result.success(furn);// 返回成功的信息-携带查询到furn信息
     }
 
+    // 分页查询的接口/方法
+
+    /**
+     * @param pageNum  显示第几页，默认1
+     * @param pageSize 每页显示几条记录，默认5
+     * @return
+     */
+    @GetMapping("/furnsByPage")
+    public Result listFurnsByPage(@RequestParam(defaultValue = "1") Integer pageNum,
+                                  @RequestParam(defaultValue = "5") Integer pageSize) {
+        // 这里通过page方法，返回Page对象，对象中就封装了分页数据
+        Page<Furn> page = furnService.page(new Page<>(pageNum, pageSize));
+        // 这里我们注意观察，返回的page数据结构是如何的？这样才能知道在前端如何绑定返回的数据。
+        return Result.success(page);
+    }
 }
