@@ -56,19 +56,25 @@
       <el-form ref="form" :model="form" :rules="rules" label-width="120px">
         <!--说明：prop="name"表示和rules的哪个规则关联-->
         <el-form-item label="家居名" prop="name">
-          <el-input v-model="form.name" style="width: 80%"></el-input>
+          <el-input v-model="form.name" style="width: 50%"></el-input>
+        <!--显示返回的后端校验信息-vue的插入表达式-->
+          {{this.validMsg.name}}
         </el-form-item>
         <el-form-item label="厂商" prop="maker">
-          <el-input v-model="form.maker" style="width: 80%"></el-input>
+          <el-input v-model="form.maker" style="width: 50%"></el-input>
+          {{this.validMsg.maker}}
         </el-form-item>
         <el-form-item label="价格" prop="price">
-          <el-input v-model="form.price" style="width: 80%"></el-input>
+          <el-input v-model="form.price" style="width: 50%"></el-input>
+          {{this.validMsg.price}}
         </el-form-item>
         <el-form-item label="销量" prop="sales">
-          <el-input v-model="form.sales" style="width: 80%"></el-input>
+          <el-input v-model="form.sales" style="width: 50%"></el-input>
+          {{this.validMsg.sales}}
         </el-form-item>
         <el-form-item label="库存" prop="stock">
-          <el-input v-model="form.stock" style="width: 80%"></el-input>
+          <el-input v-model="form.stock" style="width: 50%"></el-input>
+          {{this.validMsg.stock}}
         </el-form-item>
       </el-form>
       <template #footer>
@@ -90,6 +96,7 @@ export default {
   components: {},
   data() { // 数据部分
     return {
+      validMsg: {}, //关联后端校验数据信息
       currentPage: 1,//当前页
       pageSize: 5, //每页显示几条记录
       total: 10, //一共有多少条记录，会通过请求获取到表中对应的记录数
@@ -139,6 +146,7 @@ export default {
           this.$refs.form.resetFields()
         }
       })
+      this.validMsg = {}
     }
     ,
     //处理pageSize的变化
@@ -230,14 +238,31 @@ export default {
 
         // 添加时，和表单验证关联，如果没有验证通过，就不提交
         this.$refs['form'].validate((valid) => {
+          //为了配合后端校验，暂时放行
+          valid = true
           //valid就是表单校验后返回的结果
-          if (valid) {//检验通过
+          if (valid) {//前端检验通过
             request.post("/api/save", this.form).then(
                 res => { // 是箭头函数
-                  // res 就是后端程序返回给前端的结果
-                  console.log("res=", res)
-                  this.dialogVisible = false
-                  this.list() //刷新家居列表
+
+                  if (res.code === "200") { //添加成功
+                    // res 就是后端程序返回给前端的结果
+                    console.log("res=", res)
+                    this.dialogVisible = false
+                    this.list() //刷新家居列表
+                  } else if (res.code === "400") { //后端校验失败
+
+                    // 取出返回的校验错误信息
+                    this.validMsg.name = res.data.name
+                    this.validMsg.maker = res.data.maker
+                    this.validMsg.price = res.data.price
+                    this.validMsg.sales = res.data.sales
+                    this.validMsg.stock = res.data.stock
+
+
+                  }
+
+
                 }
             )
           } else {//校验没有通过

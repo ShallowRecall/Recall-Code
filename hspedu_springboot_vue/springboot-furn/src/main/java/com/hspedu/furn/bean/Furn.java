@@ -4,6 +4,11 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 
 /**
@@ -22,12 +27,27 @@ public class Furn {
     //type = IdType.AUTO 主键的类型是自增长
     @TableId(type = IdType.AUTO)
     private Integer id;
+    //根据自己的业务需求，来配置相应的注解
 
+    //如果是对String进行非空校验，我们应该使用@NotEmpty
+    @NotEmpty(message = "请输入家具名")
     private String name;
+
+    @NotEmpty(message = "请输入厂商名")
     private String maker;
-    private Double price;
+
+    @NotNull(message = "请输入数字")
+    @Range(min = 0,message = "价格不能小于0")
+    private BigDecimal price;
+
+    @NotNull(message = "请输入数字")
+    @Range(min = 0,message = "销量不能小于0")
     private Integer sales;
+
+    @NotNull(message = "请输入数字")
+    @Range(min = 0,message = "库存不能小于0")
     private Integer stock;
+
     private String imgPath = "assets/images/product-image/1.jpg";
 
 }

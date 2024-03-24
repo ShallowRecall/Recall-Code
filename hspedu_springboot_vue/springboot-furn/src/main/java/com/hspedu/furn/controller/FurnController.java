@@ -9,9 +9,13 @@ import com.hspedu.furn.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -38,12 +42,28 @@ public class FurnController {
 
     // 编写方法，完成添加
     @PostMapping("/save")
-    public Result save(@RequestBody Furn furn) {
+    public Result save(@Validated @RequestBody Furn furn, Errors errors) {
 
-        log.info("furn={}", furn);
-        furnService.save(furn);
+        //如果出现校验错误，springboot 底层会把错误信息，封装到errors
 
-        return Result.success(); // 返回成功信息
+        //定义map，准备把errors中的校验错误放入到map，如果有错误信息
+        //就不真正添加，并且将错误信息通过map返回给客户端-客户端就可以取出显示
+        HashMap<String, Object> map = new HashMap<>();
+
+        List<FieldError> fieldErrors = errors.getFieldErrors();
+        //遍历 将错误信息放入到map，当然可能有，也可能没有错误
+        for (FieldError fieldError : fieldErrors) {
+            map.put(fieldError.getField(), fieldError.getDefaultMessage());
+        }
+        if (map.isEmpty()) {//说明没有校验错误,正常添加
+            log.info("furn={}", furn);
+            furnService.save(furn);
+            return Result.success(); // 返回成功信息
+        } else {
+            return Result.error("400", "后端校验失败~", map);
+        }
+
+
     }
 
     // 返回所有的家居信息
