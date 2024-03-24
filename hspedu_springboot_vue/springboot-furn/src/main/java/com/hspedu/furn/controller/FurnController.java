@@ -1,5 +1,6 @@
 package com.hspedu.furn.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -149,4 +150,25 @@ public class FurnController {
 
         return Result.success(page);
     }
+
+
+    // 编写方法，使用LambdaQueryWrapper封装查询条件，完成检索
+    @GetMapping("/furnsBySearchPage2")
+    public Result listFurnsByConditionPage2(@RequestParam(defaultValue = "1") Integer pageNum,
+                                            @RequestParam(defaultValue = "5") Integer pageSize,
+                                            @RequestParam(defaultValue = "") String search) {
+
+        //创建LambdaQueryWrapper，封装检索条件
+        LambdaQueryWrapper<Furn> lambdaQueryWrapper = Wrappers.<Furn>lambdaQuery();
+
+        //判断search
+        if (StringUtils.hasText(search)) {
+            lambdaQueryWrapper.like(Furn::getName, search);
+        }
+
+        Page<Furn> page = furnService.page(new Page<>(pageNum, pageSize), lambdaQueryWrapper);
+        log.info("page={}", page.getRecords());
+        return Result.success(page);
+    }
+
 }

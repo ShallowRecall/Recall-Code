@@ -62,7 +62,12 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.4.3</version>
         </dependency>
-
+        <!--不适用版本仲裁-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.5.3.2</version>
+        </dependency>
 
         <!--引入hibernate-validator依赖 - 支持了JSR303的数据校验-->
         <dependency>
@@ -70,6 +75,8 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.1.0.Final</version>
         </dependency>
+
+
 
     </dependencies>
 

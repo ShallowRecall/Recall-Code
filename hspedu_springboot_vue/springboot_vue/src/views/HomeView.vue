@@ -189,7 +189,7 @@ export default {
        })*/
 
       //分页查询 + 带条件
-      request.get("/api/furnsBySearchPage", {
+      request.get("/api/furnsBySearchPage2", {
         params: {
           pageNum: this.currentPage,
           pageSize: this.pageSize,
