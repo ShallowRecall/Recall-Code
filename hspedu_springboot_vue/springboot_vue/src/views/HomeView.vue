@@ -58,23 +58,23 @@
         <el-form-item label="家居名" prop="name">
           <el-input v-model="form.name" style="width: 50%"></el-input>
         <!--显示返回的后端校验信息-vue的插入表达式-->
-          {{this.validMsg.name}}
+          {{validMsg.name}}
         </el-form-item>
         <el-form-item label="厂商" prop="maker">
           <el-input v-model="form.maker" style="width: 50%"></el-input>
-          {{this.validMsg.maker}}
+          {{validMsg.maker}}
         </el-form-item>
         <el-form-item label="价格" prop="price">
           <el-input v-model="form.price" style="width: 50%"></el-input>
-          {{this.validMsg.price}}
+          {{validMsg.price}}
         </el-form-item>
         <el-form-item label="销量" prop="sales">
           <el-input v-model="form.sales" style="width: 50%"></el-input>
-          {{this.validMsg.sales}}
+          {{validMsg.sales}}
         </el-form-item>
         <el-form-item label="库存" prop="stock">
           <el-input v-model="form.stock" style="width: 50%"></el-input>
-          {{this.validMsg.stock}}
+          {{validMsg.stock}}
         </el-form-item>
       </el-form>
       <template #footer>
@@ -239,7 +239,7 @@ export default {
         // 添加时，和表单验证关联，如果没有验证通过，就不提交
         this.$refs['form'].validate((valid) => {
           //为了配合后端校验，暂时放行
-          valid = true
+          //valid = true
           //valid就是表单校验后返回的结果
           if (valid) {//前端检验通过
             request.post("/api/save", this.form).then(

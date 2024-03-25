@@ -3,6 +3,7 @@ package com.hspedu.furn.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hspedu.furn.bean.Furn;
 import com.hspedu.furn.service.FurnService;
@@ -16,8 +17,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author ZhouYu
@@ -158,12 +161,44 @@ public class FurnController {
                                             @RequestParam(defaultValue = "5") Integer pageSize,
                                             @RequestParam(defaultValue = "") String search) {
 
+        //说明：关于lambda表达式，类名::实例方法
+
+        //解读：
+        //1. Furn::getName 就是通过lambda表达式引用实例方法 getName
+        //2. 这里就是把 Furn::getName 赋给了 SFunction<T,R> 函数式接口 ？
+        //3. 看看 SFunction<T,R> 源码
+        /**
+         * @FunctionalInterface
+         * public interface SFunction<T, R> extends Function<T, R>, Serializable {
+         * }
+         *父接口
+         * @FunctionalInterface
+         * public interface Function<T, R> {
+         *      R apply(T t); //抽象方法：表示根据类型T的类型，获取类型R的结果
+         *
+         *      // 后面还有默认实现的方法
+         *
+         * }
+         * 4. 传入 Furn::getName 后，就相当于实现了 SFunction<T, R> 的apply方法
+         * 5. 底层会根据 传入的 Furn::getName 去得到该方法的对应的属性映射的表的字段，可以更加灵活
+         * 6. mybatis 在xxMapper.xml 中有 ResultMap 会体现 Bean的属性和表的字段的映射关系
+         *
+         */
+
+
+
+
         //创建LambdaQueryWrapper，封装检索条件
         LambdaQueryWrapper<Furn> lambdaQueryWrapper = Wrappers.<Furn>lambdaQuery();
 
         //判断search
         if (StringUtils.hasText(search)) {
-            lambdaQueryWrapper.like(Furn::getName, search);
+
+            //lambdaQueryWrapper.like(Furn::getName, search);
+
+            SFunction<Furn,Object> sf = Furn::getName;
+            lambdaQueryWrapper.like(sf, search);
+
         }
 
         Page<Furn> page = furnService.page(new Page<>(pageNum, pageSize), lambdaQueryWrapper);
