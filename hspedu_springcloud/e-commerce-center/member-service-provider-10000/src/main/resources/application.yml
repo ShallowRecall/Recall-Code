@@ -1,0 +1,16 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: member-service-provider-10000 #配置应用的名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://localhost:3306/e_commerce_center_db?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      username: root
+      password: QY1989424334
+# 配置mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #指定mapper.xml文件位置
+  type-aliases-package: com.hspedu.springcloud.entity # 实体类所在的包，这样通过类名就可以引用
