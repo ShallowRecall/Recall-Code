@@ -4,10 +4,7 @@ import com.hspedu.springcloud.entity.Member;
 import com.hspedu.springcloud.entity.Result;
 import com.hspedu.springcloud.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -26,7 +23,8 @@ public class MemberController {
     //添加方法/接口
 
     @PostMapping("/member/save")
-    public Result save(Member member) {
+    public Result save(@RequestBody Member member) {
+        log.info("service-provider member={}", member);
         int affected = memberService.save(member);
         if (affected > 0) { //说明添加成功
             return Result.success("添加会员成功", affected);
