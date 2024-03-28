@@ -20,7 +20,7 @@ public class MemberConsumerController {
 
     //command + shift + U 切换大小写
     public static final String MEMBER_SERVICE_PROVIDER_URL =
-            "http://localhost:10000";
+            "http://localhost:10000"; //后面这个地方会修改成提供服务的注册别名
     //装配RestTemplate
     @Resource
     private RestTemplate restTemplate;
@@ -33,6 +33,7 @@ public class MemberConsumerController {
         //请求的完整的url：MEMBER_SERVICE_PROVIDER_URL+"/member/save" =>  http://localhost:10000/member/save
         //member：就是通过restTemplate 发出的post请求携带的数据(对象)
         //Result.class：返回对象类型
+        //这里通过restTemplate 调用服务提供模块的接口，就是一个远程调用 RPC
         return restTemplate.postForObject(MEMBER_SERVICE_PROVIDER_URL
                 + "/member/save", member, Result.class);
     }

@@ -13,6 +13,13 @@
 
     <!--引入相关的依赖，我们引入了当前需要的依赖，后面如果有其它需要，再灵活调整-->
     <dependencies>
+
+        <!--引入eureka client 场景启动器starter-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
         <!--引入web-starter 使用了版本仲裁(从父项目继承了版本)-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -14,3 +14,21 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml #指定mapper.xml文件位置
   type-aliases-package: com.hspedu.springcloud.entity # 实体类所在的包，这样通过类名就可以引用
+
+# 配置eureka-client
+eureka:
+  client:
+    register-with-eureka: true #将自己注册到Eureka-server
+    #表示从Eureka-server 抓取注册信息
+    #如果是单节点，是可以不配置的，但是如果是一个集群，则必须配置true，
+    #才能配合Ribbon使用负载均衡功能
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个eureka-server
+      defaultZone: http://localhost:9001/eureka
+#  instance:
+#    #设置客户端向服务器端发送心跳的时间间隔 1s(默认是30s)
+#    lease-renewal-interval-in-seconds: 1
+#    #服务端收到最后一次心跳后等待的时间上限
+#    #时间单位(秒)，默认是90s，超时将剔除服务
+#    lease-expiration-duration-in-seconds: 2

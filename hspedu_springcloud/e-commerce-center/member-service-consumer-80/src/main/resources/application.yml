@@ -4,3 +4,11 @@ server:
 spring:
   application:
     name: member-service-consumer-80
+# 配置eureka-client
+eureka:
+  client:
+    register-with-eureka: true #将自己注册到Eureka-server
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个eureka-server
+      defaultZone: http://localhost:9001/eureka

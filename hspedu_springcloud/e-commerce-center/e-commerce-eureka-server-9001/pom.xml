@@ -7,19 +7,23 @@
         <groupId>com.hspedu.springcloud</groupId>
         <artifactId>e-commerce-center</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <!--列出了父项目/父工程聚合管理的子模块/子项目-->
     </parent>
 
-    <!--该项目继承父项目的groupId是 com.hspedu.springcloud-->
-    <!--因此这里就不需要再指定groupId-->
-    <artifactId>member-service-provider-10000</artifactId>
+    <artifactId>e-commerce-eureka-server-9001</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <!--引入相关的依赖-->
     <dependencies>
-        <!--引入eureka-client 场景启动器starter，使用版本仲裁-->
+
+        <!--引入eureka-server-starter 场景启动器：使用版本仲裁-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!--引入web-starter 使用了版本仲裁(从父项目继承了版本)
         -->
@@ -29,43 +33,18 @@
         </dependency>
 
         <!--s说明：starter-actuator 是springboot程序的监控系统，可以实现系统的健康检查
-        可以通过http://localhost:10000/actuator 看到相关的联系和信息
+        可以通过http://localhost:9001/actuator 看到相关的联系和信息
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!--引入mybatis-starter 整合到springboot-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <!--引入druid-starter-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <!--这里需要我们指定版本，因为父项目没有-->
-            <version>1.1.17</version>
-        </dependency>
-
-        <!--引入mysql依赖，使用版本仲裁-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!--spring-boot-starter-jdbc引入-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <!--引入test-starter-->
@@ -81,14 +60,5 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-
-
-
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
 </project>
