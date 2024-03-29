@@ -42,7 +42,7 @@ public class MemberController {
 
         //使用Result把查询到的结果返回
         if (member != null) {
-            return Result.success("查询会员成功 member-service-provider-10000", member);
+            return Result.success("查询会员成功 member-service-provider-10002", member);
         } else {
             return Result.error("402", "ID=" + id + "不存在");
         }
