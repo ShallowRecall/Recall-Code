@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -37,8 +38,10 @@ public class MemberController {
     //查询的方法/接口
     //使用url占位符+@PathVariable
     @GetMapping("/member/get/{id}")
-    public Result getMemberById(@PathVariable("id") Long id) {
+    public Result getMemberById(@PathVariable("id") Long id, HttpServletRequest request) {
 
+        /*String color = request.getParameter("color");
+        String address = request.getParameter("address");*/
         /*try {
             //模拟超时，休眠5秒
             TimeUnit.MICROSECONDS.sleep(5000);
@@ -50,7 +53,8 @@ public class MemberController {
 
         //使用Result把查询到的结果返回
         if (member != null) {
-            return Result.success("查询会员成功 member-service-provider-10000", member);
+            //return Result.success("查询会员成功 member-service-provider-10000 " + color + "-" + address, member);
+            return Result.success("查询会员成功 member-service-provider-10000 ", member);
         } else {
             return Result.error("402", "ID=" + id + "不存在");
         }
