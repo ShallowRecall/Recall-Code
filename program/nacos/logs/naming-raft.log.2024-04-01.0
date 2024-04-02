@@ -1,0 +1,20 @@
+2024-04-01 20:46:58,879 INFO initializing Raft sub-system
+
+2024-04-01 20:46:58,880 INFO raft notifier started
+
+2024-04-01 20:46:58,880 INFO finish loading all datums, size: 0 cost 1 ms.
+
+2024-04-01 20:46:58,881 INFO cache loaded, datum count: 0, current term: 0
+
+2024-04-01 20:46:58,881 INFO finish to load data from disk, cost: 2 ms.
+
+2024-04-01 20:46:58,882 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2024-04-01 20:46:58,849 INFO server list is updated, new: 1 servers: [{"adWeight":0,"alive":false,"ip":"172.16.103.15","key":"172.16.103.15:0","lastRefTime":0,"servePort":0,"site":"unknown","weight":1}]
+
+2024-04-01 20:46:58,885 INFO raft peers changed: [{"adWeight":0,"alive":false,"ip":"172.16.103.15","key":"172.16.103.15:0","lastRefTime":0,"lastRefTimeStr":"","servePort":0,"site":"unknown","weight":1}]
+
+2024-04-01 20:46:59,121 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2024-04-01 20:46:59,124 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+

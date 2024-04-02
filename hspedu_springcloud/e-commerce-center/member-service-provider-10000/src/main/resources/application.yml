@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: member-service-provider #配置应用的名称
+  #配置sleuth 和 zipkin
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      #采样率 0-1之间，1表示全部采集
+      probability: 1
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

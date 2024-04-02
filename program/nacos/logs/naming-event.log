@@ -1,0 +1,64 @@
+2024-04-02 19:52:13,937 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 19:52:13,939 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.100.198:10004_true,
+
+2024-04-02 19:52:13,940 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.100.198:10004_true,
+
+2024-04-02 20:08:06,098 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:10006:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:08:06,099 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.100.198:10006_true,172.16.100.198:10004_true,
+
+2024-04-02 20:08:06,099 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.100.198:10006_true,172.16.100.198:10004_true,
+
+2024-04-02 20:43:59,886 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:43:59,887 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:43:59,887 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:43:59,887 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:43:59,888 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:43:59,888 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:46:03,221 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:46:03,221 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 
+
+2024-04-02 20:46:03,221 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:46:03,221 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 
+
+2024-04-02 20:46:14,808 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:46:14,808 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:46:14,809 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:46:14,809 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:46:14,809 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:46:14,809 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:49:32,777 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:49:32,778 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 
+
+2024-04-02 20:49:32,778 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:49:32,778 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 
+
+2024-04-02 20:49:39,252 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:49:39,252 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:49:39,252 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.100.198:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-02 20:49:39,252 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:49:39,252 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
+2024-04-02 20:49:39,253 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-consumer-80, ips: 172.16.100.198:80_true,
+
