@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>全局异常显示页面</title>
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.9.7/dist/css/layui.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 50px;
+        }
+
+        .error-container {
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 48px;
+            color: #d9534f;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+
+        /* 自定义返回链接样式 */
+        .return-link {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #4CAF50; /* 绿色 */
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .return-link:hover {
+            background-color: #45a049; /* 深一点的绿色 */
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="error-code">500</div>
+    <div class="error-message">服务器内部错误</div>
+    <div>
+        <!-- 使用Thymeleaf展示异常信息 -->
+        <p th:if="${msg != null}" th:text="'异常信息：' + ${msg}"></p>
+        <p th:if="${stackTrace != null}" th:text="'堆栈跟踪：' + ${stackTrace}"></p>
+    </div>
+    <a href="#" th:href="@{/}" class="return-link">返回主页面</a>
+</div>
+</body>
+</html>

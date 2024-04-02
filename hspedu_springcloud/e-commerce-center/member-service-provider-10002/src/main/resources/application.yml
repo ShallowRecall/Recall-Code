@@ -1,0 +1,35 @@
+server:
+  port: 10002
+
+spring:
+  application:
+    name: member-service-provider #配置应用的名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://localhost:3306/e_commerce_center_db?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      username: root
+      password: QY1989424334
+# 配置mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #指定mapper.xml文件位置
+  type-aliases-package: com.hspedu.springcloud.entity # 实体类所在的包，这样通过类名就可以引用
+
+# 配置eureka-client
+eureka:
+  client:
+    register-with-eureka: true #将自己注册到Eureka-server
+    #表示从Eureka-server 抓取注册信息
+    #如果是单节点，是可以不配置的，但是如果是一个集群，则必须配置true，
+    #才能配合Ribbon使用负载均衡功能
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个eureka-server
+      #将本服务注册到多个eureka-server，使用逗号间隔即可
+      defaultZone: http://eureka9001.com:9001/eureka,http://eureka9002.com:9002/eureka
+#  instance:
+#    #设置客户端向服务器端发送心跳的时间间隔 1s(默认是30s)
+#    lease-renewal-interval-in-seconds: 1
+#    #服务端收到最后一次心跳后等待的时间上限
+#    #时间单位(秒)，默认是90s，超时将剔除服务
+#    lease-expiration-duration-in-seconds: 2

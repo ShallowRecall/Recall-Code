@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Page</title>
+  <!-- 引入 layui.css -->
+  <link href="//unpkg.com/layui@2.9.7/dist/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-container">
+  <div class="layui-row">
+    <div class="layui-col-xs12">
+      <!-- 错误页面内容 -->
+      <div class="layui-card">
+        <div class="layui-card-header">Error 404 - Page Not Found</div>
+        <div class="layui-card-body">
+          <p>The page you requested could not be found.</p>
+        </div>
+        错误状态码：<h1 th:text="${status}"></h1><br/>
+        错误信息：<h1 th:text="${error}"></h1><br/>
+        <a href="#" th:href="@{/}">返回主页面</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 引入layui.js -->
+<script src="https://cdn.staticfile.org/layui/2.6.8/layui.js"></script>
+</body>
+</html>

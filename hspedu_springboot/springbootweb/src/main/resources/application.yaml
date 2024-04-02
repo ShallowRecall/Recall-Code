@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    # static-path-pattern: /hspres/** #修改静态资源访问的路径/ 前缀
+    hiddenmethod:
+      filter:
+        enabled: true # 启用了HiddenHttpMethodFilter，开启页面表单的Rest功能
+    view:       # 配置视图解析器
+      suffix: .html
+      prefix: /   # 这里是需要注意 prefix需要和当前的static-path-pattern 保持一致
+    contentnegotiation:
+      favor-parameter: true # 开启基于请求参数的内容协商
+      parameter-name: recallformat # 指定一个内容协商的参数名
+  web:
+    resources:
+      # 修改/指定 静态资源的访问路径/位置
+      # 如果配置了 static-locations，那么默认的资源访问路径/位置 就会失效
+      static-locations: [ "classpath:/hspimg/","classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/" ]  #String[] staticLocations

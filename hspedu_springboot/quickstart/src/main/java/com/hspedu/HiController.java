@@ -1,6 +1,7 @@
 package com.hspedu;
 
 import com.hspedu.springboot.bean.Furn;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import javax.annotation.Resource;
  * @author ZhouYu
  * @version 1.0
  */
+@Slf4j
 @Controller
 public class HiController {
 
@@ -33,7 +35,13 @@ public class HiController {
 
     @RequestMapping("/furn")
     @ResponseBody
-    public Furn furn(){
+    public Furn furn() {
+        //System.out.println("furn--" + furn);
+        //使用slf4j日志输出
+        // 普通方式
+        log.info("furn--" + furn);
+        // 占位符方式输出
+        log.info("furn={} myfurn={}",furn,furn);
         return furn;
     }
 

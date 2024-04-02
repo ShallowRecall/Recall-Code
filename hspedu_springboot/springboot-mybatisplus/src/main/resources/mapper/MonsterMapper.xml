@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hspedu.springboot.mybatisplus.mapper.MonsterMapper">
+
+    <insert id="insertSelective">
+        insert into monster
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="age != null">age,</if>
+            <if test="birthday != null">birthday,</if>
+            <if test="email != null">email,</if>
+            <if test="name != null">name,</if>
+            <if test="gender != null">gender,</if>
+            <if test="salary != null">salary,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id,jdbcType=NUMERIC},</if>
+            <if test="age != null">#{age,jdbcType=NUMERIC},</if>
+            <if test="birthday != null">#{birthday,jdbcType=TIMESTAMP},</if>
+            <if test="email != null">#{email,jdbcType=VARCHAR},</if>
+            <if test="name != null">#{name,jdbcType=VARCHAR},</if>
+            <if test="gender != null">#{gender,jdbcType=VARCHAR},</if>
+            <if test="salary != null">#{salary,jdbcType=DECIMAL},</if>
+        </trim>
+    </insert>
+
+    <delete id="delByEmail">
+        delete
+        from monster
+        where email = #{email,jdbcType=VARCHAR}
+    </delete>
+</mapper>

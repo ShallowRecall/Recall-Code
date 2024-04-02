@@ -1,0 +1,23 @@
+server:
+  port: 9001
+
+
+#配置eureka-server
+eureka:
+  instance:
+    hostname: eureka9001.com #服务实例名
+  client:
+    #配置不向注册中心注册自己
+    register-with-eureka: false
+    #表示自己就是注册中心，作用就是维护注册的服务实例，不需要去检索服务
+    fetch-registry: false
+    service-url:
+      #设置与eureka server 交互模块，查询服务和注册服务都需要依赖这个地址
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #相互注册,这里应该注册到eureka server9002
+      defaultZone: http://eureka9002.com:9002/eureka/
+#  server:
+#    #禁用自我保护模式
+#    enable-self-preservation: false
+#    #设置超时时间为2秒，在2秒钟，收不到心跳包，就认为是超时
+#    eviction-interval-timer-in-ms: 2000

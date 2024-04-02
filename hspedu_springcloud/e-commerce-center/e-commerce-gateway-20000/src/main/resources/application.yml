@@ -1,0 +1,62 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: e-commerce-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #启用了 DiscoveryClient 服务发现
+          enabled: true
+      routes: #配置路由，可以配置多个路由 List<RouteDefinition> routes
+        - id: member_route01 #路由的id，程序员自己配置，要求唯一
+          #gateway 最终访问的url 是 url=uri+Path
+          #匹配后提供服务的路由地址：也可以是外网 http://www.baidu.com
+          #比如：客户端/浏览器请求 url http://localhost:20000/member/get/1
+          #如果根据Path匹配成功 最终访问的url/转发url 就是 url=http://localhost:10000/member/get/1
+          #如果匹配失败，则由gateway返回404信息
+          #疑问：这里配置的 uri 是固定，在当前这种情况可以不使用Eureka Server
+          #uri: http://localhost:10000
+          #解读：
+          #1. lb：协议名，member-service-provider 注册到Eureka server 的服务名(小写)
+          #2. 默认情况下，负载均衡算法是轮询
+          uri: lb://member-service-provider:10000
+          predicates: #断言，可以有多种形式
+            - Path=/member/get/**
+            #- After=2024-03-31T17:33:21.619+08:00[Asia/Shanghai]
+            #- Before=2024-03-31T17:33:21.619+08:00[Asia/Shanghai]
+            #- Between=2024-03-31T17:33:21.619+08:00[Asia/Shanghai],2024-04-30T19:00:21.842+08:00[Asia/Shanghai]
+            #- Cookie=user, recall
+            #- Header=X-Request-Id, hello
+            #- Host=**.recall.**
+            #- Method=GET,POST
+            #- Query=email, [\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+
+            #- RemoteAddr=127.0.0.1
+#          filters:
+#            - AddRequestParameter=color, blue
+#            - AddRequestParameter=address, beijing
+        - id: member_route02 #路由的id，程序员自己配置，要求唯一
+          #uri: http://localhost:10000
+          uri: lb://member-service-provider:10000
+          predicates: #断言，可以有多种形式
+            #这时如果客户端/浏览器 访问gateway 的url http://localhost:20000/member/save
+            #匹配Path成功 最终访问的url 就是 http://localhost:10000/member/save
+            - Path=/member/save/**
+
+#        - id: member_route03 #路由的id，程序员自己配置，要求唯一
+#          uri: http://www.baidu.com
+#          predicates: #断言，可以有多种形式
+#            - Path=/
+
+#配置Eureka-Client
+eureka:
+  instance:
+    hostname: e-commerce-service
+  client:
+    register-with-eureka: true #将自己注册到Eureka-server
+    fetch-registry: true
+    service-url:
+      #表示将自己注册到哪个eureka-server
+      defaultZone: http://eureka9001.com:9001/eureka
