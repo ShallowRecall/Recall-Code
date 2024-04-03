@@ -1,72 +1,422 @@
-2024-04-02 19:48:44,725 INFO notifyConnectTimeout:200
+2024-04-03 00:14:50,570 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:33
 
-2024-04-02 19:48:44,726 INFO notifySocketTimeout:8000
+2024-04-03 00:15:20,492 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:34
 
-2024-04-02 19:48:44,726 INFO isHealthCheck:true
+2024-04-03 00:15:25,498 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:35
 
-2024-04-02 19:48:44,726 INFO maxHealthCheckFailCount:12
+2024-04-03 00:15:55,432 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:36
 
-2024-04-02 19:48:44,726 INFO maxContent:10485760
+2024-04-03 00:16:00,432 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:37
 
-2024-04-02 19:48:45,069 INFO Schema 'NACOS' already exists.
+2024-04-03 00:16:30,365 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:38
 
-2024-04-02 19:48:45,102 INFO Table/View 'CONFIG_INFO' already exists in Schema 'NACOS'.
+2024-04-03 00:16:35,367 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:39
 
-2024-04-02 19:48:45,124 INFO Table/View 'HIS_CONFIG_INFO' already exists in Schema 'NACOS'.
+2024-04-03 00:17:05,323 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:40
 
-2024-04-02 19:48:45,133 INFO Table/View 'CONFIG_INFO_BETA' already exists in Schema 'NACOS'.
+2024-04-03 00:17:10,299 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:41
 
-2024-04-02 19:48:45,137 INFO Table/View 'CONFIG_INFO_TAG' already exists in Schema 'NACOS'.
+2024-04-03 00:33:14,359 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:42
 
-2024-04-02 19:48:45,140 INFO Table/View 'CONFIG_INFO_AGGR' already exists in Schema 'NACOS'.
+2024-04-03 00:48:44,299 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:43
 
-2024-04-02 19:48:45,143 INFO Table/View 'APP_LIST' already exists in Schema 'NACOS'.
+2024-04-03 00:49:14,329 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:44
 
-2024-04-02 19:48:45,146 INFO Table/View 'APP_CONFIGDATA_RELATION_SUBS' already exists in Schema 'NACOS'.
+2024-04-03 00:49:19,241 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:45
 
-2024-04-02 19:48:45,148 INFO Table/View 'APP_CONFIGDATA_RELATION_PUBS' already exists in Schema 'NACOS'.
+2024-04-03 00:49:49,165 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:46
 
-2024-04-02 19:48:45,151 INFO Table/View 'CONFIG_TAGS_RELATION' already exists in Schema 'NACOS'.
+2024-04-03 00:50:19,090 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:47
 
-2024-04-02 19:48:45,154 INFO Table/View 'GROUP_CAPACITY' already exists in Schema 'NACOS'.
+2024-04-03 00:50:24,098 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:48
 
-2024-04-02 19:48:45,156 INFO Table/View 'TENANT_CAPACITY' already exists in Schema 'NACOS'.
+2024-04-03 00:50:54,027 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:49
 
-2024-04-02 19:48:45,159 INFO Table/View 'TENANT_INFO' already exists in Schema 'NACOS'.
+2024-04-03 00:50:59,035 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:50
 
-2024-04-02 19:48:45,163 INFO Table/View 'USERS' already exists in Schema 'NACOS'.
+2024-04-03 00:51:04,043 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:51
 
-2024-04-02 19:48:45,167 INFO Table/View 'ROLES' already exists in Schema 'NACOS'.
+2024-04-03 00:51:09,053 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:52
 
-2024-04-02 19:48:45,170 INFO Table/View 'PERMISSIONS' already exists in Schema 'NACOS'.
+2024-04-03 00:51:14,059 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:53
 
-2024-04-02 19:48:45,210 INFO The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL240401204658740' defined on 'USERS'.
+2024-04-03 01:06:44,052 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:54
 
-2024-04-02 19:48:45,213 INFO The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'UK_USERNAME_ROLE' defined on 'ROLES'.
+2024-04-03 01:06:49,062 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:55
 
-2024-04-02 19:48:45,702 INFO ServerListService address-server port:8080
+2024-04-03 01:06:54,069 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:56
 
-2024-04-02 19:48:45,702 INFO ADDRESS_SERVER_URL:http://jmenv.tbsite.net:8080/nacos/serverlist
+2024-04-03 01:07:23,999 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:57
 
-2024-04-02 19:48:45,703 WARN [serverlist] updated to [172.16.100.198:8848]
+2024-04-03 01:07:53,930 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:58
 
-2024-04-02 19:48:45,752 WARN DumpService start
+2024-04-03 01:07:58,932 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:59
 
-2024-04-02 19:48:45,754 INFO start clear all config-info.
+2024-04-03 01:08:28,862 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:60
 
-2024-04-02 19:48:45,756 WARN clear all config-info failed.
+2024-04-03 01:08:58,793 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:61
 
-2024-04-02 19:48:45,756 WARN clear all config-info-tenant failed.
+2024-04-03 01:09:03,802 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:62
 
-2024-04-02 19:48:45,788 INFO start clear all config-info-beta.
+2024-04-03 01:09:08,812 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:63
 
-2024-04-02 19:48:45,788 WARN clear all config-info-beta failed.
+2024-04-03 01:24:31,291 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:64
 
-2024-04-02 19:48:45,788 WARN clear all config-info-beta-tenant failed.
+2024-04-03 01:25:01,234 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:65
 
-2024-04-02 19:48:45,795 INFO start clear all config-info-tag.
+2024-04-03 01:25:06,244 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:66
 
-2024-04-02 19:48:45,795 WARN clear all config-info-tag failed.
+2024-04-03 01:25:36,177 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:67
 
-2024-04-02 19:48:45,795 WARN clear all config-info-tag-tenant failed.
+2024-04-03 01:26:06,112 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:68
+
+2024-04-03 01:26:11,123 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:69
+
+2024-04-03 01:26:41,066 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:70
+
+2024-04-03 01:26:46,077 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:71
+
+2024-04-03 01:27:16,003 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:72
+
+2024-04-03 03:27:19,485 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:73
+
+2024-04-03 03:27:24,493 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:74
+
+2024-04-03 03:27:54,421 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:75
+
+2024-04-03 03:27:59,425 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:76
+
+2024-04-03 03:28:04,432 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:77
+
+2024-04-03 03:28:34,482 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:78
+
+2024-04-03 03:28:39,363 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:79
+
+2024-04-03 03:28:49,058 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:80
+
+2024-04-03 03:28:54,066 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:81
+
+2024-04-03 03:44:24,079 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:82
+
+2024-04-03 03:44:29,086 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:83
+
+2024-04-03 03:44:59,015 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:84
+
+2024-04-03 03:45:28,942 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:85
+
+2024-04-03 03:45:33,948 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:86
+
+2024-04-03 03:46:03,873 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:87
+
+2024-04-03 03:46:33,800 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:88
+
+2024-04-03 03:46:38,807 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:89
+
+2024-04-03 05:39:39,237 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:90
+
+2024-04-03 05:39:45,094 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:91
+
+2024-04-03 05:39:49,098 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:92
+
+2024-04-03 05:39:54,102 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:93
+
+2024-04-03 05:40:24,029 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:94
+
+2024-04-03 05:40:29,032 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:95
+
+2024-04-03 05:40:58,962 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:96
+
+2024-04-03 05:41:28,903 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:97
+
+2024-04-03 05:41:33,906 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:98
+
+2024-04-03 05:41:38,915 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:99
+
+2024-04-03 05:41:43,922 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:100
+
+2024-04-03 05:41:48,927 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:101
+
+2024-04-03 05:57:18,930 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:102
+
+2024-04-03 05:57:23,937 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:103
+
+2024-04-03 05:57:53,867 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:104
+
+2024-04-03 05:57:58,873 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:105
+
+2024-04-03 05:58:28,797 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:106
+
+2024-04-03 05:58:58,724 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:107
+
+2024-04-03 05:59:03,732 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:108
+
+2024-04-03 05:59:33,661 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:109
+
+2024-04-03 06:00:03,592 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:110
+
+2024-04-03 06:00:08,598 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:111
+
+2024-04-03 06:00:38,528 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:112
+
+2024-04-03 07:47:02,226 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:113
+
+2024-04-03 07:47:07,230 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:114
+
+2024-04-03 08:04:37,591 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:115
+
+2024-04-03 08:04:42,595 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:116
+
+2024-04-03 08:04:47,599 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:117
+
+2024-04-03 08:04:52,607 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:118
+
+2024-04-03 08:04:57,616 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:119
+
+2024-04-03 08:05:02,621 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:120
+
+2024-04-03 09:48:05,470 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:121
+
+2024-04-03 09:48:10,477 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:122
+
+2024-04-03 10:05:30,890 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:123
+
+2024-04-03 10:21:00,874 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:124
+
+2024-04-03 10:21:05,879 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:125
+
+2024-04-03 10:21:35,798 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:126
+
+2024-04-03 10:22:05,727 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:127
+
+2024-04-03 10:22:10,738 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:128
+
+2024-04-03 10:22:40,661 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:129
+
+2024-04-03 10:23:10,584 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:130
+
+2024-04-03 10:23:15,592 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:131
+
+2024-04-03 10:23:20,596 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:132
+
+2024-04-03 10:23:25,606 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:133
+
+2024-04-03 10:23:30,616 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:134
+
+2024-04-03 10:49:03,811 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:135
+
+2024-04-03 10:49:09,701 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:136
+
+2024-04-03 10:49:38,624 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:137
+
+2024-04-03 10:49:43,626 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:138
+
+2024-04-03 10:50:13,551 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:139
+
+2024-04-03 10:50:43,481 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:140
+
+2024-04-03 10:50:48,487 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:141
+
+2024-04-03 10:51:18,414 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:142
+
+2024-04-03 10:51:48,339 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:143
+
+2024-04-03 10:51:53,345 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:144
+
+2024-04-03 10:51:58,354 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:145
+
+2024-04-03 10:52:03,361 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:146
+
+2024-04-03 10:52:08,368 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:147
+
+2024-04-03 11:07:38,511 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:148
+
+2024-04-03 11:07:44,373 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:149
+
+2024-04-03 11:08:13,291 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:150
+
+2024-04-03 11:08:43,211 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:151
+
+2024-04-03 11:08:48,215 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:152
+
+2024-04-03 11:09:18,132 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:153
+
+2024-04-03 11:09:23,142 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:154
+
+2024-04-03 11:09:54,059 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:155
+
+2024-04-03 12:53:13,383 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:156
+
+2024-04-03 12:53:18,395 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:157
+
+2024-04-03 12:53:23,409 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:158
+
+2024-04-03 12:53:53,339 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:159
+
+2024-04-03 12:54:23,269 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:160
+
+2024-04-03 12:54:28,275 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:161
+
+2024-04-03 12:54:58,208 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:162
+
+2024-04-03 12:55:03,213 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:163
+
+2024-04-03 13:10:33,289 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:164
+
+2024-04-03 13:11:03,517 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:165
+
+2024-04-03 13:11:08,523 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:166
+
+2024-04-03 13:11:38,459 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:167
+
+2024-04-03 13:11:43,471 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:168
+
+2024-04-03 13:12:13,392 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:169
+
+2024-04-03 13:12:18,400 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:170
+
+2024-04-03 13:27:48,396 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:171
+
+2024-04-03 13:28:18,539 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:172
+
+2024-04-03 13:28:23,320 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:173
+
+2024-04-03 13:28:28,328 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:174
+
+2024-04-03 13:28:58,262 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:175
+
+2024-04-03 13:29:28,193 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:176
+
+2024-04-03 13:29:33,202 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:177
+
+2024-04-03 13:30:03,134 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:178
+
+2024-04-03 13:47:46,339 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:179
+
+2024-04-03 13:47:51,348 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:180
+
+2024-04-03 13:47:56,360 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:181
+
+2024-04-03 13:48:01,369 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:182
+
+2024-04-03 13:48:06,374 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:183
+
+2024-04-03 13:48:11,384 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:184
+
+2024-04-03 13:48:16,396 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:185
+
+2024-04-03 13:52:41,710 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:186
+
+2024-04-03 13:52:46,721 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:187
+
+2024-04-03 13:53:16,655 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:188
+
+2024-04-03 13:53:46,577 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:189
+
+2024-04-03 13:53:51,584 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:190
+
+2024-04-03 13:54:21,503 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:191
+
+2024-04-03 13:54:26,514 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:192
+
+2024-04-03 13:54:56,439 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:193
+
+2024-04-03 13:55:26,364 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:194
+
+2024-04-03 13:55:31,373 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:195
+
+2024-04-03 15:55:34,723 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:196
+
+2024-04-03 15:55:39,741 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:197
+
+2024-04-03 16:11:09,761 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:198
+
+2024-04-03 16:11:14,779 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:199
+
+2024-04-03 16:11:44,710 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:200
+
+2024-04-03 16:12:14,644 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:201
+
+2024-04-03 16:12:19,655 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:202
+
+2024-04-03 16:27:49,661 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:203
+
+2024-04-03 16:27:54,660 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:204
+
+2024-04-03 16:28:24,588 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:205
+
+2024-04-03 16:28:54,704 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:206
+
+2024-04-03 16:28:59,506 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:207
+
+2024-04-03 16:29:29,422 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:208
+
+2024-04-03 16:29:34,430 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:209
+
+2024-04-03 16:30:04,359 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:210
+
+2024-04-03 16:45:54,278 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:211
+
+2024-04-03 16:46:24,213 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:212
+
+2024-04-03 16:46:29,219 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:213
+
+2024-04-03 16:46:34,229 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:214
+
+2024-04-03 16:47:04,159 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:215
+
+2024-04-03 16:47:34,085 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:216
+
+2024-04-03 16:47:39,097 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:217
+
+2024-04-03 16:48:09,020 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:218
+
+2024-04-03 16:48:14,031 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:219
+
+2024-04-03 16:48:19,039 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:220
+
+2024-04-03 16:48:24,044 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:221
+
+2024-04-03 16:48:29,051 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:222
+
+2024-04-03 17:03:59,044 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:223
+
+2024-04-03 17:04:04,051 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:224
+
+2024-04-03 17:04:33,977 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:225
+
+2024-04-03 17:05:03,902 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:226
+
+2024-04-03 17:05:08,909 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:227
+
+2024-04-03 17:05:38,840 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:228
+
+2024-04-03 17:06:08,880 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:229
+
+2024-04-03 17:06:13,766 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:230
+
+2024-04-03 17:22:51,505 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:231
+
+2024-04-03 17:38:21,455 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:232
+
+2024-04-03 17:38:26,466 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:233
+
+2024-04-03 17:38:56,391 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:234
+
+2024-04-03 17:39:26,328 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:235
+
+2024-04-03 17:39:31,334 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:236
+
+2024-04-03 17:40:01,259 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:237
+
+2024-04-03 17:40:31,194 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:238
+
+2024-04-03 17:40:36,203 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:239
+
+2024-04-03 18:11:09,984 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:240
+
+2024-04-03 18:11:14,992 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:241
+
+2024-04-03 18:11:18,999 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:242
+
+2024-04-03 18:44:36,766 ERROR unhealthIp:172.16.100.198:8848, unhealthCount:243
 

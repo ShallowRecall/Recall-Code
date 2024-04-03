@@ -1,14 +1,20 @@
-2024-04-02 19:52:14,940 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+2024-04-03 19:57:06,606 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
 
-2024-04-02 20:08:07,103 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+2024-04-03 19:57:17,640 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
 
-2024-04-02 20:44:00,889 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+2024-04-03 19:57:19,341 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
 
-2024-04-02 20:46:04,225 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+2024-04-03 19:58:06,069 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client is changed, add it to push queue.
 
-2024-04-02 20:46:15,811 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+2024-04-03 20:00:00,467 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client is changed, add it to push queue.
 
-2024-04-02 20:49:33,780 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+2024-04-03 20:00:12,455 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client is changed, add it to push queue.
 
-2024-04-02 20:49:40,256 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+2024-04-03 20:01:54,653 INFO DEFAULT_GROUP@@member-service-nacos-consumer-80 is changed, add it to push queue.
+
+2024-04-03 20:01:54,691 INFO DEFAULT_GROUP@@member-service-nacos-provider is changed, add it to push queue.
+
+2024-04-03 20:17:25,965 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client is changed, add it to push queue.
+
+2024-04-03 20:17:37,942 INFO DEFAULT_GROUP@@e-commerce-nacos-config-client is changed, add it to push queue.
 
