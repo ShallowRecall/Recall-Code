@@ -1,0 +1,29 @@
+server:
+  port: 20000 #端口
+
+spring:
+  application:
+    # 这里的name需要参考nacos 配置中心的Data Id
+    name: e-commerce-nacos-config-client
+  #配置nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #服务注册中心地址
+      config:
+        server-addr: localhost:8848 #配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        group: search #指定order组，默认是DEFAULT_GROUP
+        #namespace: 5086d966-255a-4430-a32d-be99579a855e # 指定对应namespace id[阿里]
+        namespace: 66740c1b-17ee-4293-9972-a8bd39c629bf # 指定对应namespace id[百度]
+
+#解读：
+#1. nacos 配置客户端/当前的微服务模块，会根据配置，找到配置中心的数据(配置文件)
+#2. config.server-addr: localhost:8848 可以找到配置中心
+#3. spring.application.name 对应是DataId e-commerce-nacos-config
+#4. 在application.yml：配置 spring.profiles.active dev
+#5. spring.cloud.nacos.config.file-extension 配置文件的扩展名 .yaml
+#6. 小结：根据配置 就是 到  localhost:8848 下的 e-commerce-nacos-config-dev.yaml
+#   获取配置信息/数据
+#7. 规则就是：${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#   来定位配置中心的 Data ID
