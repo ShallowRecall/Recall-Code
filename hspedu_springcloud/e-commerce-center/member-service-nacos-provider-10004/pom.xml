@@ -19,6 +19,13 @@
 
     <dependencies>
 
+        <!--引入alibaba-sentinel starter 即场景启动器-->
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
         <!--引入nacos-starter nacos的场景启动器starter-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
