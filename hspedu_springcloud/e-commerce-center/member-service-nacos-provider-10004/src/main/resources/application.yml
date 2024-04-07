@@ -7,7 +7,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://localhost:3306/e_commerce_center_db?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      url: jdbc:mysql://localhost:3306/e_commerce_center_db?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
       username: root
       password: QY1989424334
   #配置nacos
@@ -15,6 +15,17 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848 #配置Nacos Server的地址
+    sentinel:
+      transport:
+        dashboard: localhost:8080 #指定sentinel控制台的地址
+        #解读transport.port
+        #1. transport.port 端口配置会在被监控的微服务对应主机上启动 Http Server
+        #2. 该Http Server 会与sentinel控制台进行交互
+        #3. 比如sentinel 控制台添加了一个限流规则，会把规则数据push 给这个Http Server 接收
+        #   Http Server 会将这个规则注册到Sentinel 中
+        #4. 简单的讲：transport.port 指定被监控的微服务应用于sentinel 控制台交互的端口，
+        #5. 默认端口 8719，假如被占用了，就会自动的从8719开始依次+1扫描，直到找到一个没有被占用的端口
+        port: 8719 #指定端口
 
 
 # 配置mybatis

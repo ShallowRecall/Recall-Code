@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Apr 02 19:48:44 CST 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-018e-9ea3-e49d-00001cdf7c90 
+Sun Apr 07 21:10:34 CST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-018e-b8ae-9b97-00001cd97800 
 on database directory /Users/zhouyu/Recall-Code/program/nacos/data/derby-data with class loader org.springframework.boot.loader.LaunchedURLClassLoader@7cd84586 
 Loaded from jar:file:/Users/zhouyu/Recall-Code/program/nacos/target/nacos-server.jar!/BOOT-INF/lib/derby-10.10.1.1.jar!/
 java.vendor=Amazon.com Inc.
