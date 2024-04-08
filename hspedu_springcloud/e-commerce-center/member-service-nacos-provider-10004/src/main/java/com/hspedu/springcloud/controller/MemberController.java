@@ -41,6 +41,17 @@ public class MemberController {
         return Result.success("t2()执行..");
     }
 
+    @GetMapping("/t3")
+    public Result t3() {
+        //让线程休眠300ms，模拟执行时间
+        try {
+            TimeUnit.MILLISECONDS.sleep(300);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return Result.success("t3()执行..");
+    }
+
     //添加方法/接口
 
     @PostMapping("/member/save")
