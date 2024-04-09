@@ -23,6 +23,34 @@ public class MemberController {
     @Resource
     public MemberService memberService;
 
+    private static int num = 0;//执行的计数器-static静态
+
+    //设计一个测试案例-满足异常数的阈值，触发限流机制
+    @GetMapping("/t5")
+    public Result t5() {
+        //解读
+        //出现10次异常，这里需要设置大于6，需要留出几次做测试和加入族点链路
+        if (++num <= 10) {
+            // 制造一个异常
+            System.out.println(3 / 0);
+        }
+        log.info("熔断降级测试[异常数] 执行t5() 线程id={}",
+                Thread.currentThread().getId());
+        return Result.success("t5()执行了...");
+    }
+
+    @GetMapping("/t4")
+    public Result t4() {
+        //设置异常比例达到50%
+        if (++num % 2 == 0) {
+            //制造一个异常
+            System.out.println(3 / 0);
+        }
+        log.info("熔断降级测试[异常比例] 执行t4() 线程id={}",
+                Thread.currentThread().getId());
+        return Result.success("t4()执行...");
+    }
+
     @GetMapping("/t1")
     public Result t1() {
         return Result.success("t1()执行..");
@@ -37,7 +65,7 @@ public class MemberController {
             throw new RuntimeException(e);
         }
         //输出线程信息
-        log.info("执行t2() 线程id={}",Thread.currentThread().getId());
+        log.info("执行t2() 线程id={}", Thread.currentThread().getId());
         return Result.success("t2()执行..");
     }
 

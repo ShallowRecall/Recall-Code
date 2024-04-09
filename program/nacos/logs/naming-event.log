@@ -1,204 +1,34 @@
-2024-04-08 13:33:53,258 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:23:14,019 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 13:33:53,261 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:23:14,019 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
-2024-04-08 13:33:53,261 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:48:22,300 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 13:43:03,186 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:48:22,301 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
 
-2024-04-08 13:43:03,186 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
+2024-04-09 20:48:37,131 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 13:43:13,230 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:48:37,131 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
-2024-04-08 13:43:13,230 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:48:37,132 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
-2024-04-08 13:44:23,450 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:53:13,646 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 13:44:23,450 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
+2024-04-09 20:53:13,646 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
 
-2024-04-08 13:44:33,895 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:53:25,701 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 13:44:33,895 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:53:25,701 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
-2024-04-08 13:44:33,896 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:53:25,702 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
-2024-04-08 14:00:59,186 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:54:36,554 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 14:00:59,186 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
+2024-04-09 20:54:36,555 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
 
-2024-04-08 14:01:07,944 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
+2024-04-09 20:54:52,190 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.102.72:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
 
-2024-04-08 14:01:07,944 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:54:52,192 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
-2024-04-08 14:01:07,944 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:20:40,317 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:20:40,317 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:20:49,050 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:20:49,050 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:20:49,051 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:22:29,577 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:22:29,577 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:22:39,396 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:22:39,396 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:22:39,396 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:22:41,421 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:22:41,421 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:22:51,308 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:22:51,308 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:22:51,308 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:23:51,035 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:23:51,035 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:24:00,901 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:24:00,901 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:24:00,901 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:24:11,329 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:24:11,329 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:24:19,437 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:24:19,437 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:24:19,437 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:25:57,939 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:25:57,939 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:26:06,224 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:26:06,224 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:26:06,226 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:30:04,434 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:30:04,434 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:30:14,168 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:30:14,168 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:30:14,169 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:32:35,647 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:32:35,647 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:32:54,553 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:32:54,554 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:32:54,554 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:38:01,958 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:38:01,958 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:38:11,879 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:38:11,879 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:38:11,879 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:39:22,107 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:39:22,107 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:39:31,679 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:39:31,679 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:39:31,679 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:50:35,066 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:50:35,067 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:50:43,325 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:50:43,325 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:50:43,325 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:53:14,011 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:53:14,011 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:53:19,392 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:53:19,392 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:53:19,393 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:54:17,974 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:54:17,974 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 14:59:06,584 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 14:59:06,585 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 14:59:06,585 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 15:54:20,536 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 15:54:20,536 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 15:54:27,082 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 15:54:27,082 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 15:54:27,082 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 15:58:01,281 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 15:58:01,281 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 15:58:07,044 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 15:58:07,044 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 15:58:07,044 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 16:10:06,968 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 16:10:06,968 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 16:10:12,500 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 16:10:12,500 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 16:10:12,501 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 16:10:55,203 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 16:10:55,204 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 
-
-2024-04-08 16:11:57,678 INFO DEFAULT_GROUP@@member-service-nacos-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.16.103.160:10004:unknown:DEFAULT_1.0_true_false_DEFAULT]
-
-2024-04-08 16:11:57,678 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
-
-2024-04-08 16:11:57,678 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.103.160:10004_true,
+2024-04-09 20:54:52,193 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@member-service-nacos-provider, ips: 172.16.102.72:10004_true,
 
