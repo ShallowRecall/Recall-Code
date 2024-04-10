@@ -5,6 +5,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.hspedu.springcloud.entity.Member;
 import com.hspedu.springcloud.entity.Result;
 import com.hspedu.springcloud.handler.CustomGlobalBlockHandler;
+import com.hspedu.springcloud.handler.CustomGlobalFallbackHandler;
 import com.hspedu.springcloud.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -32,16 +33,25 @@ public class MemberController {
      * value = "t6" 表示 sentinel限流资源的名字
      * blockHandlerClass = CustomGlobalBlockHandler.class ： 全局限流处理类
      * blockHandler = "handlerMethod1" : 指定使用全局限流处理类哪个方法，来处理限流
+     * fallbackClass = CustomGlobalFallbackHandler.class：全局fallback处理类
+     * fallback = "fallbackHandlerMethod1"：指定使用全局fallback处理类哪个方法，来处理java异常/业务异常
      * @return
      */
     //这里我们使用全局限流处理类，显示限流信息
     @GetMapping("/t6")
     @SentinelResource(value = "t6",
+            fallbackClass = CustomGlobalFallbackHandler.class,
+            fallback = "fallbackHandlerMethod1",
             blockHandlerClass = CustomGlobalBlockHandler.class,
             blockHandler = "handlerMethod1")
     public Result t6() {
-        log.info("执行t6() 线程id={}" ,Thread.currentThread().getId());
-        return Result.success("200","t6()执行OK~~");
+        //假定：当访问t6资源次数是5的倍数时，就出现java异常
+        if (++num % 5 == 0) {
+            throw new RuntimeException("num的值异常 num=" + num);
+        }
+
+        log.info("执行t6() 线程id={}", Thread.currentThread().getId());
+        return Result.success("200", "t6()执行OK~~");
     }
 
     //完成对热点key限流的测试 /news?id&type=x
