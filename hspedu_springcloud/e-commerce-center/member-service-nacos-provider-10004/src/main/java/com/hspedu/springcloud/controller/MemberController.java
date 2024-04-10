@@ -1,7 +1,10 @@
 package com.hspedu.springcloud.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.hspedu.springcloud.entity.Member;
 import com.hspedu.springcloud.entity.Result;
+import com.hspedu.springcloud.handler.CustomGlobalBlockHandler;
 import com.hspedu.springcloud.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +27,46 @@ public class MemberController {
     public MemberService memberService;
 
     private static int num = 0;//执行的计数器-static静态
+
+    /**
+     * value = "t6" 表示 sentinel限流资源的名字
+     * blockHandlerClass = CustomGlobalBlockHandler.class ： 全局限流处理类
+     * blockHandler = "handlerMethod1" : 指定使用全局限流处理类哪个方法，来处理限流
+     * @return
+     */
+    //这里我们使用全局限流处理类，显示限流信息
+    @GetMapping("/t6")
+    @SentinelResource(value = "t6",
+            blockHandlerClass = CustomGlobalBlockHandler.class,
+            blockHandler = "handlerMethod1")
+    public Result t6() {
+        log.info("执行t6() 线程id={}" ,Thread.currentThread().getId());
+        return Result.success("200","t6()执行OK~~");
+    }
+
+    //完成对热点key限流的测试 /news?id&type=x
+
+    /**
+     * 解读
+     * 1. @SentinelResource：指定sentinel限流资源
+     * 2. value = “news” 表示sentinel限流资源 名称，由程序员指定
+     */
+    @GetMapping("/news")
+    @SentinelResource(value = "news", blockHandler = "newsBlockHandler")
+    public Result queryNews(@RequestParam(value = "id", required = false) String id,
+                            @RequestParam(value = "type", required = false) String type) {
+        //在实际开发中，新闻应该到DB或者缓存获取,这里就是简单的模拟
+        log.info("到DB 查询新闻");
+        return Result.success("返回id=" + id + " 新闻 from DB");
+    }
+
+    //热点key限制/限流异常处理方法
+    public Result newsBlockHandler(String id, String type,
+                                   BlockException blockException) {
+        return Result.success("查询id=" + id + " 新闻 触发热点key限流保护 sorry...");
+        //return Result.error("401","查询id=" + id + " 新闻 触发热点key限流保护 sorry...");
+    }
+
 
     //设计一个测试案例-满足异常数的阈值，触发限流机制
     @GetMapping("/t5")
