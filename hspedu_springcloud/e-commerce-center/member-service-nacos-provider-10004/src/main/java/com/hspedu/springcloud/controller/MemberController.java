@@ -35,6 +35,8 @@ public class MemberController {
      * blockHandler = "handlerMethod1" : 指定使用全局限流处理类哪个方法，来处理限流
      * fallbackClass = CustomGlobalFallbackHandler.class：全局fallback处理类
      * fallback = "fallbackHandlerMethod1"：指定使用全局fallback处理类哪个方法，来处理java异常/业务异常
+     * exceptionsToIgnore = {RuntimeException.class}：表示如果t6()抛出RuntimeException，就使用系统默认方式处理
+     *
      * @return
      */
     //这里我们使用全局限流处理类，显示限流信息
@@ -43,13 +45,16 @@ public class MemberController {
             fallbackClass = CustomGlobalFallbackHandler.class,
             fallback = "fallbackHandlerMethod1",
             blockHandlerClass = CustomGlobalBlockHandler.class,
-            blockHandler = "handlerMethod1")
+            blockHandler = "handlerMethod1",
+            exceptionsToIgnore = {NullPointerException.class})
     public Result t6() {
         //假定：当访问t6资源次数是5的倍数时，就出现java异常
         if (++num % 5 == 0) {
+            throw new NullPointerException("null指针异常 num=" + num);
+        }
+        if (num % 6 == 0) {//当访问t6资源次数是6的倍数时，抛出 runtime异常
             throw new RuntimeException("num的值异常 num=" + num);
         }
-
         log.info("执行t6() 线程id={}", Thread.currentThread().getId());
         return Result.success("200", "t6()执行OK~~");
     }
