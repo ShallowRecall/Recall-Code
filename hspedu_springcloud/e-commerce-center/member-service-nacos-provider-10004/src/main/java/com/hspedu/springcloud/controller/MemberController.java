@@ -154,19 +154,20 @@ public class MemberController {
     //查询的方法/接口
     //使用url占位符+@PathVariable
     @GetMapping("/member/get/{id}")
-    public Result getMemberById(@PathVariable("id") Long id, HttpServletRequest request) {
+    //public Result getMemberById(@PathVariable("id") Long id, HttpServletRequest request) {
+    public Result getMemberById(@PathVariable("id") Long id) {
    /* //通过?携带参数方式
     @GetMapping(value = "/member/get",params = "id")
     public Result getMemberById(Long id) {*/
 
         /*String color = request.getParameter("color");
         String address = request.getParameter("address");*/
-        try {
+        /*try {
             //模拟超时，让线程休眠1秒
-            TimeUnit.MILLISECONDS.sleep(1000);
+            TimeUnit.MILLISECONDS.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
 
         // 输出线程的情况
         log.info("enter 10004 getMemberById 当前线程id={} 时间={}",

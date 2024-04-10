@@ -38,7 +38,8 @@ public class MemberController {
     //查询的方法/接口
     //使用url占位符+@PathVariable
     @GetMapping("/member/get/{id}")
-    public Result getMemberById(@PathVariable("id") Long id, HttpServletRequest request) {
+    //public Result getMemberById(@PathVariable("id") Long id, HttpServletRequest request) {
+    public Result getMemberById(@PathVariable("id") Long id) {
 
         /*String color = request.getParameter("color");
         String address = request.getParameter("address");*/

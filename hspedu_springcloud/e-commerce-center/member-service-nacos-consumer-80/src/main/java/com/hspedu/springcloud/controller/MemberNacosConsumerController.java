@@ -2,6 +2,7 @@ package com.hspedu.springcloud.controller;
 
 import com.hspedu.springcloud.entity.Member;
 import com.hspedu.springcloud.entity.Result;
+import com.hspedu.springcloud.service.MemberOpenFeignService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @Slf4j
-public class MemberMacosConsumerController {
+public class MemberNacosConsumerController {
 
     //http://member-service-nacos-provider 就是服务注册到Nacos server的服务名，这里是小写
     public static final String MEMBER_SERVICE_NACOS_PROVIDER_URL =
@@ -26,6 +27,18 @@ public class MemberMacosConsumerController {
     //配置RestTemplate
     @Resource
     private RestTemplate restTemplate;
+
+    //装配MemberOpenFeignService
+    @Resource
+    private MemberOpenFeignService memberOpenFeignService;
+
+    //编写方法通过openfeign实现远程调用
+    @GetMapping("/member/openfeign/consumer/get/{id}")
+    public Result<Member> getMemberOpenfeignById(@PathVariable("id")Long id){
+        //这里使用openfeign接口方式远程调用
+        log.info("调用方式是 openfeign..");
+        return memberOpenFeignService.getMemberById(id);
+    }
 
     //方法1/接口. 添加member
     @PostMapping("/member/nacos/consumer/save")
