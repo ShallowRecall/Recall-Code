@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="sec_kill_redis:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/sec_kill_redis_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="sec_kill_redis/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="sec_kill_redis" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
